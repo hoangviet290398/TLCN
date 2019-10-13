@@ -10,7 +10,7 @@
 
     @include('layout.header')
 
-    <a href="{{route('aboutUs')}}" type="button" class="btn btn-outline-info btn-about-us" style="z-index: 1;">About us</a>
+   {{--  <a href="{{route('aboutUs')}}" type="button" class="btn btn-outline-info btn-about-us" style="z-index: 1;">About us</a> --}}
     
     @yield('content')
 
@@ -58,5 +58,5 @@
         @endif
     </script>
 </body>
-
+  @include('layout.footer')
 </html>

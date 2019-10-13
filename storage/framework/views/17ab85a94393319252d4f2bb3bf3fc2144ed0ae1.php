@@ -10,7 +10,7 @@
 
     <?php echo $__env->make('layout.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-    <a href="<?php echo e(route('aboutUs')); ?>" type="button" class="btn btn-outline-info btn-about-us" style="z-index: 1;">About us</a>
+   
     
     <?php echo $__env->yieldContent('content'); ?>
 
@@ -58,6 +58,6 @@
         <?php endif; ?>
     </script>
 </body>
-
+  <?php echo $__env->make('layout.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </html>
 <?php /**PATH C:\xampp\htdocs\TLCN\resources\views/layout/master.blade.php ENDPATH**/ ?>
