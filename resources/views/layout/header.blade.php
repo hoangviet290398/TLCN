@@ -20,43 +20,43 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                   <li class="nav-item active">
-                    <a class="nav-link text-light font-weight-bold" href="{{ route('homePage') }}">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link text-light header" href="{{ route('homePage') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light font-weight-bold" href="#">About Us</a>
+                    <a class="nav-link text-light header" href="#">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light font-weight-bold" href="#">Contact Us</a>
+                    <a class="nav-link text-light header" href="#">Contact Us</a>
                 </li>
 
                 <!-- start collapse block -->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <div class="d-flex justify-content-start" style="width:100%">
-                        <div class="col-6">
+                        <div class="col-12">
 
                             <!-- start search block -->
                             <form id="searchform" class="form-inline-xs" action="{{ route('searchIndex') }}" method="get">
-                                <div class="input-group">
-                                    <input id="search" name="keyword" class="form-control input-sm" type="search" placeholder="Search..."
+                                <div class="input-group form-control-sm">
+                                    <input id="search" name="keyword" class="form-control form-control-sm" type="search" placeholder="Type search words"
                                     title="enter your keyword" autocomplete="off">
                                     <div id="result_list" class="scrollbar scrollbar-lady-lips dropdown-menu"></div>
-                                    <div class="input-group-prepend">
-                                        <button class="btn btn-outline-dark font-weight-bold" type="button"
+                                 {{--    <div class="input-group-prepend">
+                                        <button class="btn bg-light font-weight-bold form-control-sm" type="button"
                                         onclick="submit_search()">
                                         <i class="fa fa-search"></i>
                                     </button>
-                                </div>
+                                </div> --}}
                             </div>
                         </form>
                         <!-- end search block -->
 
                     </div>
                     @if(Auth::check())
-                    <div class="col-0.5">
+                  {{--   <div class="col-0.5">
                         <!-- start add button block -->
                         <a href="{{route('addTopic')}}" class="btn btn-outline-secondary"><i class="fa fa-plus"></i></a>
                         <!-- end add button block -->
-                    </div>
+                    </div> --}}
                     <div class="col-0.5">
                         <!-- start notification block -->
                         <div class="nav-item dropright">
@@ -100,8 +100,9 @@
                     <ul class="navbar-nav mr-auto"></ul>
 
                     <!-- start user menu block -->
-                    <div class="col-0.5 pt-2">
-                        <b class="text-light">{{ Auth::user()->fullname }}</b>
+                   
+                    <div class="col-3 pt-2 ml-5">
+                        <b class="text-light header">{{ Auth::user()->fullname }}</b>
                     </div>
                     <div class="col-0.5">
                         <div class="nav-item dropdown">
@@ -133,13 +134,14 @@
                             </div>
                         </div>
                     </div>
+          
                     <!-- end user menu block -->
                     @else
-                    <div class="col-sm ">
+                    <div class="col-sm-6 mt-1">
                     <!-- start sign in or sign up block -->
                     <ul class="navbar-nav mr-auto"></ul>
-                    <a href="{{route('signInIndex')}}" class="btn btn-primary">Sign in</a>
-                    <a href="{{route('signUp')}}" class="btn btn-secondary ml-3">Sign up</a>
+                    <a href="{{route('signInIndex')}}" class="btn btn-primary btn-sm font-weight-bold pl-3 pr-3">Sign in</a>
+                    <a href="{{route('signUp')}}" class="btn btn-outline-secondary ml-3 btn-sm font-weight- pl-3 pr-3">Sign up</a>
                     <!-- end sign in or sign up block -->
                     </div>
                     @endif

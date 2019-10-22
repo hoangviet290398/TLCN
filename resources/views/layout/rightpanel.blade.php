@@ -23,13 +23,13 @@
 
 			</div> --}}
 			<div class="container">
-				<div class="row text-center" style="font-size: 12px">
+				<div class="row text-center" style="font-size: 11px">
 					<div class="col-2"></div>
 					<div class="col-4">Questions</div>
 					<div class="col-4">Answers</div>
 					<div class="col-2"></div>
 				</div>
-				<div class="row text-center" style="font-size: 12px">
+				<div class="row text-center" style="font-size: 11px">
 					<div class="col-2"></div>
 					<div class="col-4">Best Answer</div>
 					<div class="col-4">Users</div>
@@ -41,6 +41,7 @@
 			<!--QuyTran added 22/10/2019 -->
             <div>
                 <h6 class="font-weight-bold ml-3 mt-4"><i class="fa fa-users mr-3"></i>Top Members</h6>
+                <br />
                 <div class="row px-2 pt-1 pb-1">
                     <br />
                     <div class="col-sm-3">
