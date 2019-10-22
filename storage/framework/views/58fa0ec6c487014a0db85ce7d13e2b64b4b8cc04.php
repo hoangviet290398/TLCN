@@ -33,15 +33,16 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
+<div class="mt-1 d-flex justify-content-center">
+<?php echo $__env->make('layout.leftpanel', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<div class="card col-7">
 
-
-<div class="container mt-5">
     <!-- Start Question Block -->
-    <div class="card shadow word-wrap">
+    <div class="">
         <div class="row px-3 pt-3">
 
             <div class="col-sm-1"><img src="<?php echo e(asset('storage/avatars')); ?>/<?php echo e($question->user->avatar); ?>"
-                    class="user-avatar rounded-circle align-middle img-fluid"></div>
+                    class="user-avatar rounded-circle align-middle"></div>
 
             <!-- Start Username, Date, Edit, Delete Block -->
             <div class="col-sm-11">
@@ -146,7 +147,7 @@
 
     <!-- Start Insert Answer Block -->
     <?php if(Auth::check()): ?>
-    <div class="card shadow" style="margin-top: 20px;">
+    <div class="" style="margin-top: 20px;">
         <div class="card-body">
             <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="alert alert-danger"><?php echo e($error); ?></div>
@@ -158,14 +159,18 @@
                 <?php echo csrf_field(); ?>
                 <input type="text" name="question_id" hidden value="<?php echo e($question->_id); ?>">
                 <div class="form-group">
+                   
                     <div class="row">
-                        <div class="col-sm-4">
+                       
+                        <div class="col-sm-12">
+                            <textarea id="markdown" name="content"></textarea>
+                        </div>
+                    </div>
+                     <div class="row">
+                         <div class="col-sm-12">
                             <div class="file-loading">
                                 <input id="fileUpload" name="attachment" type="file">
                             </div>
-                        </div>
-                        <div class="col-sm-8">
-                            <textarea id="markdown" name="content"></textarea>
                         </div>
                     </div>
                 </div>
@@ -177,7 +182,7 @@
     <!-- End Insert Answer Block -->
 
     <!-- Start Answer Block -->
-    <div class="card shadow" style="margin-top: 20px; margin-bottom: 20px; ">
+    <div class="" style="margin-top: 20px; margin-bottom: 20px; ">
         <div class="card-header">
             <h3><i class="fa fa-angle-double-right"></i> Answers:</h3>
         </div>
@@ -336,6 +341,8 @@
         <div class="row px-3 pt-3 justify-content-sm-center"><?php echo $answers->links(); ?></div>
     </div>
 
+</div>
+<?php echo $__env->make('layout.rightpanel', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </div>
 <?php $__env->stopSection(); ?>
 

@@ -35,15 +35,16 @@
 @endsection
 
 @section('content')
+<div class="mt-1 d-flex justify-content-center">
+@include('layout.leftpanel')
+<div class="card col-7">
 
-
-<div class="container mt-5">
     <!-- Start Question Block -->
-    <div class="card shadow word-wrap">
+    <div class="">
         <div class="row px-3 pt-3">
 
             <div class="col-sm-1"><img src="{{ asset('storage/avatars')}}/{{$question->user->avatar}}"
-                    class="user-avatar rounded-circle align-middle img-fluid"></div>
+                    class="user-avatar rounded-circle align-middle"></div>
 
             <!-- Start Username, Date, Edit, Delete Block -->
             <div class="col-sm-11">
@@ -142,7 +143,7 @@
 
     <!-- Start Insert Answer Block -->
     @if (Auth::check())
-    <div class="card shadow" style="margin-top: 20px;">
+    <div class="" style="margin-top: 20px;">
         <div class="card-body">
             @foreach($errors->all() as $error)
                 <div class="alert alert-danger">{{ $error }}</div>
@@ -154,14 +155,18 @@
                 @csrf
                 <input type="text" name="question_id" hidden value="{{$question->_id}}">
                 <div class="form-group">
+                   
                     <div class="row">
-                        <div class="col-sm-4">
+                       
+                        <div class="col-sm-12">
+                            <textarea id="markdown" name="content"></textarea>
+                        </div>
+                    </div>
+                     <div class="row">
+                         <div class="col-sm-12">
                             <div class="file-loading">
                                 <input id="fileUpload" name="attachment" type="file">
                             </div>
-                        </div>
-                        <div class="col-sm-8">
-                            <textarea id="markdown" name="content"></textarea>
                         </div>
                     </div>
                 </div>
@@ -173,7 +178,7 @@
     <!-- End Insert Answer Block -->
 
     <!-- Start Answer Block -->
-    <div class="card shadow" style="margin-top: 20px; margin-bottom: 20px; ">
+    <div class="" style="margin-top: 20px; margin-bottom: 20px; ">
         <div class="card-header">
             <h3><i class="fa fa-angle-double-right"></i> Answers:</h3>
         </div>
@@ -322,5 +327,7 @@
         <div class="row px-3 pt-3 justify-content-sm-center">{!! $answers->links() !!}</div>
     </div>
 
+</div>
+@include('layout.rightpanel')
 </div>
 @endsection

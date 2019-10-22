@@ -20,7 +20,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                   <li class="nav-item active">
-                    <a class="nav-link text-light font-weight-bold" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link text-light font-weight-bold" href="{{ route('homePage') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-light font-weight-bold" href="#">About Us</a>
@@ -101,13 +101,13 @@
 
                     <!-- start user menu block -->
                     <div class="col-0.5 pt-2">
-                        <b class="text-dark">{{ Auth::user()->fullname }}</b>
+                        <b class="text-light">{{ Auth::user()->fullname }}</b>
                     </div>
                     <div class="col-0.5">
                         <div class="nav-item dropdown">
-                            <a href="" class="nav-link dropdown-toggle text-dark" id="setting" role="button"
+                            <a href="" class="nav-link dropdown-toggle text-light" id="setting" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
-                            class="fa fa-user"></i></a>
+                            class="fa fa-user text-light"></i></a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="setting">
                                 <a class="dropdown-item" href="{{ route('information') }}">
                                     <i class="fa fa-cog" style="width:20px"></i>

@@ -5,35 +5,23 @@
 
 <main>
 	<img src="{{ asset('images/resource/slogan.png') }}" alt="placeholder+image">
-	<div class="container mt-1 d-flex justify-content-center">
-		<div class="" style="width: 20%; background-color: #dfe4ea">
-			<div>
-				<h6 class="font-weight-bold ml-3 mt-4"><i class="fa fa-home mr-3"></i>Home</h6>
-			</div>
 
-			<div>
-				<h6 class="font-weight-bold ml-3 mt-4"><i class="fa fa-tags mr-3"></i>Tags</h6>
-			</div>
-
-			<div>
-				<h6 class="font-weight-bold ml-3 mt-4"><i class="fa fa-users mr-3"></i>Users</h6>
-			</div>
-
-			<div>
-				<h6 class="font-weight-bold ml-3 mt-4"><i class="fa fa-question-circle mr-3"></i>Help</h6>
-			</div>
-		</div>
-		<div class="card ml-2" style="width: 70%">
+	<div class="mt-1 d-flex justify-content-center">
+	@include('layout.leftpanel')
+		<div class="card col-7">
 			<div class="card-header text-center" style="background-color: white">
 				<ul class="nav nav-pills">
 					<li class="nav-item">
-						<a class="nav-link active" data-toggle="pill" href="#home">Home</a>
+						<a class="nav-link active" data-toggle="pill" href="#home">Recent Question</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" data-toggle="pill" href="#menu1">Menu 1</a>
+						<a class="nav-link" data-toggle="pill" href="#menu1">Hot</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" data-toggle="pill" href="#menu2">Menu 2</a>
+						<a class="nav-link" data-toggle="pill" href="#menu1">Week</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="pill" href="#menu2">Month</a>
 					</li>
 				</ul>
 			</div>
@@ -68,55 +56,7 @@
 				<div class="row px-3 pt-3 justify-content-sm-center">{!! $questions->links() !!}</div>
 			</div>
 		</div>
-		<div class="card ml-2" style="width: 30%">
-
-			<div class="card-header text-center" style="background-color: white">
-				@if(Auth::check())
-				<div class="col-0.5">
-					<!-- start add button block -->
-					<a href="{{route('addTopic')}}" class="btn btn-primary btn-block font-weight-bold">Ask a Question</a>
-					<!-- end add button block -->
-				</div>
-				@endif
-			</div>
-
-			{{-- <div class="col-12" style="background-color: #000000">
-				<div class="col-1"></div>
-				<div class="col-10" style="background-color: white">
-					<div class="col">col</div>
-					<div class="col">col</div>
-					<div class="w-100"></div>
-					<div class="col">col</div>
-					<div class="col">col</div>
-				</div>
-				<div class="col-1"></div>
-
-			</div> --}}
-			<div class="container">
-				<div class="row text-center" style="font-size: 12px">
-					<div class="col-2"></div>
-					<div class="col-4">Questions</div>
-					<div class="col-4">Answers</div>
-					<div class="col-2"></div>
-				</div>
-				<div class="row text-center" style="font-size: 12px">
-					<div class="col-2"></div>
-					<div class="col-4">Best Answer</div>
-					<div class="col-4">Users</div>
-					<div class="col-2"></div>
-				</div>
-			</div>
-
-
-			<div class="card">
-				<h6 class="font-weight-bold ml-3 mt-4"><i class="fa fa-users mr-3"></i>Top Members</h6>
-				
-			</div>
-
-			<div class="card">
-				<h6 class="font-weight-bold ml-3 mt-4"><i class="fa fa-tags mr-3"></i>Trending Tags</h6>
-			</div>
-		</div>
-	</div>
+		@include('layout.rightpanel')
+	
 </main>
 @endsection
