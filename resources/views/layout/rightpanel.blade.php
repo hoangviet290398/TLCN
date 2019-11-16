@@ -1,8 +1,8 @@
-<div class="card ml-2 col-3">
+<div class="card ml-2 col-sm-3">
 
     <div class="card-header text-center" style="background-color: white">
         @if(Auth::check())
-        <div class="col-0.5">
+        <div class="col-sm-0.5">
             <!-- start add button block -->
             <a href="{{route('addTopic')}}" class="btn btn-primary btn-block font-weight-bold">Ask a Question</a>
             <!-- end add button block -->

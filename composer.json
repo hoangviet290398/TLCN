@@ -10,8 +10,10 @@
     "require": {
         "php": "^7.1.3",
         "anhskohbo/no-captcha": "^3.0",
+        "elasticquent/elasticquent": "dev-master",
         "erusev/parsedown": "^1.7",
         "fideloper/proxy": "^4.0",
+        "guzzlehttp/guzzle": "~6.0",
         "jenssegers/mongodb": "^3.5",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0"

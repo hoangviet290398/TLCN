@@ -23,13 +23,13 @@
         }
     }
 
-    var containers = document.getElementsByClassName("image-markdown");
-    for (index_container = 0; index_container < containers.length; index_container++) {
-        var imgs = containers[index_container].getElementsByTagName("IMG");
-        for (index_img = 0; index_img < imgs.length; index_img++) {
-            imgs[index_img].setAttribute("class", "h-100 w-100");
-        }
-    }
+    // var containers = document.getElementsByClassName("image-markdown");
+    // for (index_container = 0; index_container < containers.length; index_container++) {
+    //     var imgs = containers[index_container].getElementsByTagName("IMG");
+    //     for (index_img = 0; index_img < imgs.length; index_img++) {
+    //         imgs[index_img].setAttribute("class", "h-100 w-100");
+    //     }
+    // }
 
 </script>
 @endsection
@@ -98,8 +98,11 @@
                     <div style="max-width:950px">{{$question->title}}</div>
                     <span class="badge badge-info d-flex" style="height: 32px">{{$question->category->name}}</span>
                 </h3>
+                   <hr style="border-width: 1px; border-style: solid; border-color: #b2bec3;">
             </div>
             <!-- End Question Title Block -->
+
+
 
             <!-- Start Question Content Block -->
             <div class="col-sm-12 px-3">

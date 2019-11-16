@@ -92,6 +92,7 @@ body{
     color: #aaa;
 } 
 
+
 @media (max-width: 576px){
 	.col-sm-3 {
 		flex: none !important;

@@ -1,4 +1,5 @@
 <?php
+use App\Question_Search;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +30,10 @@ Route::get('ajaxsearch',[
 	'as' => 'ajaxSearch',
 	'uses' => 'HomeController@ajaxSearch'
 ]);
+
+Route::get('QuestionSearch', 'QuestionSearchController@index');
+Route::get('getquestion', 'HomeController@getQuestion');
+Route::post('QuestionSearchCreate', 'QuestionSearchController@create');
 
 Route::post('signin',[
 	'as' => 'signIn',

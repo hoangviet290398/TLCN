@@ -36,6 +36,7 @@
     32 => 'App\\Providers\\EventServiceProvider',
     33 => 'App\\Providers\\RouteServiceProvider',
     34 => 'Jenssegers\\Mongodb\\MongodbServiceProvider',
+    35 => 'Elasticquent\\ElasticquentServiceProvider',
   ),
   'eager' => 
   array (
@@ -59,6 +60,7 @@
     17 => 'App\\Providers\\EventServiceProvider',
     18 => 'App\\Providers\\RouteServiceProvider',
     19 => 'Jenssegers\\Mongodb\\MongodbServiceProvider',
+    20 => 'Elasticquent\\ElasticquentServiceProvider',
   ),
   'deferred' => 
   array (

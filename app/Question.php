@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
+use Elasticquent\ElasticquentTrait;
 
 class Question extends Eloquent
 {
