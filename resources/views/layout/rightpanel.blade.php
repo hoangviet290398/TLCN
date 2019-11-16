@@ -25,33 +25,33 @@
     <!-- QuyTran added 23/10/2019 -->
     <div class="container p-4">
         <div class="row text-center" style="font-size: 11px">
-            <div class="col-2"></div>
-            <div class="col-4 border border-primary p-4">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4 border border-primary p-4">
                 <b class="text-primary">Questions</b>
                 <br />
                 <b style="font-size: 30px">69</b>
             </div>
-            <div class="col-4 border border-danger p-4">
+            <div class="col-sm-4 border border-danger p-4">
                 <b class="text-danger">Answers</b>
                 <br />
                 <b style="font-size: 30px">123</b>
             </div>
 
-            <div class="col-2"></div>
+            <div class="col-sm-2"></div>
         </div>
         <div class="row text-center" style="font-size: 11px">
-            <div class="col-2"></div>
-            <div class="col-4 border border-success p-4">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4 border border-success p-4">
                 <b class="text-success">Best Answers</b>
                 <br />
                 <b style="font-size: 30px">69</b>
             </div>
-            <div class="col-4 border border-info p-4">
+            <div class="col-sm-4 border border-info p-4">
                 <b class="text-info">Users</b>
                 <br />
                 <b style="font-size: 30px">123</b>
             </div>
-            <div class="col-2"></div>
+            <div class="col-sm-2"></div>
         </div>
     </div>
     <!-- QuyTran end add -->
