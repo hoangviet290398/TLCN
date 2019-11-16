@@ -17,6 +17,9 @@ Route::get('signup','SignUpController@index')->name('signUp');
 Route::post('signup','SignUpController@store')->name('signUpStore');
 Route::get('validEmail','SignUpController@validEmail')->name('validEmail');
 
+//QuyTran add 10 Nov, 2019
+Route::get('admin','AdminHomeController@index')->name('adminHomePage');
+//QuyTran end add
 Route::get('signin',[
 	'as' => 'signInIndex',
 	'uses' => 'SignInController@view'
