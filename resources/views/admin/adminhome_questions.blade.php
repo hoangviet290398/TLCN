@@ -5,7 +5,6 @@
 
     @include('admin.admincss')
     @yield('adminpublic/css')
-    
 </head>
 
 <body>
@@ -17,7 +16,7 @@
             </div>
 
             <div class="col-sm-10">
-                @include('admin.layout.adminheader')
+                @include('admin.layout.adminheader_questions')
             </div>
 
         </div>

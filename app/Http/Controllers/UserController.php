@@ -156,4 +156,7 @@ class UserController extends Controller
 
 		return view('profile.personal_infomation',compact('user','totalLike','totalDislike','totalAccepted'));
 	}
+
+  
+    
 }

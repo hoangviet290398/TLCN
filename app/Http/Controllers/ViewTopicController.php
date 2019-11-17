@@ -24,6 +24,7 @@ class ViewTopicController extends Controller
         $bestAnswer=null;
         $parsedown = new \Parsedown();
         $question->content = $parsedown->setMarkupEscaped(true)->text($question->content);
+        $topMembers = User::all();
         
         foreach ($answers as $answer) 
         {
@@ -36,7 +37,7 @@ class ViewTopicController extends Controller
         }
         
         
-        return view('question.view_topic',compact('question','answers','bestAnswer'));
+        return view('question.view_topic',compact('question','answers','bestAnswer','topMembers'));
     
     }
 

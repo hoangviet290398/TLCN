@@ -28,7 +28,13 @@ class SignInController extends Controller
         }
         else
         {
-            return redirect()->route('homePage');            
+            $user = User::where('email',$email)->get()->first();
+            if($user->admin == 1)
+            {
+                return redirect()->route('adminHomePage'); 
+            }else{
+                return redirect()->route('homePage'); 
+            }          
         }
     }
 

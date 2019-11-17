@@ -165,7 +165,6 @@
                 </li>
 
                 <div class="topbar-divider d-none d-sm-block"></div>
-
                 @if(Auth::check() && Auth::user()->admin == 1)
                 <!-- Nav Item - User Information -->
                 <li class="nav-item dropdown no-arrow">
@@ -210,7 +209,7 @@
         <div class="mt-2">
 
            <!-- Body goes here -->
-           @include('admin.adminusers')
+          
            @include('admin.adminquestions')
         </div>
 

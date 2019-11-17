@@ -18,7 +18,7 @@ Route::post('signup','SignUpController@store')->name('signUpStore');
 Route::get('validEmail','SignUpController@validEmail')->name('validEmail');
 
 //QuyTran add 10 Nov, 2019
-Route::get('admin','AdminHomeController@index')->name('adminHomePage');
+
 //QuyTran end add
 Route::get('signin',[
 	'as' => 'signInIndex',
@@ -55,6 +55,18 @@ Route::get('aboutus',[
 ]);
 
 Route::get('personalinfomation/{id}','UserController@personalInfomation')->name('personalInfomation');
+
+/*Start middleware check admin*/
+Route::middleware(['admin'])->group(function(){
+	Route::get('admin','AdminHomeController@index')->name('adminHomePage');
+	Route::get('manageusers','AdminHomeController@manageUsers')->name('manageAllUsers');
+	Route::get('managequestions','AdminHomeController@manageQuestions')->name('manageAllQuestions');
+	Route::post('admindeletetopic','AdminHomeController@destroy')->name('adminDeleteTopic');
+	
+});
+
+
+/*End middleware check admin*/
 
 /*Start middleware check sigin*/
 Route::middleware(['auth'])->group(function () {

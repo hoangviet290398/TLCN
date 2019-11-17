@@ -10,6 +10,7 @@
 
 <!-- Custom styles for this template-->
 <link href="{{ asset('adminpublic/css/sb-admin-2.min.css')}}" rel="stylesheet">
+<link rel="icon" type="image/png" href="{{ asset('images/resource/logo2a.png') }}">
 
 <!-- Bootstrap core JavaScript-->
 <script src="{{ asset('adminpublic/vendor/jquery/jquery.min.js') }}"></script>

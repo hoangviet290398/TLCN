@@ -66,7 +66,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                        <form action="<?php echo e(route('deleteTopic')); ?>" method="post">
+                                        <form action="<?php echo e(route('adminDeleteTopic')); ?>" method="post">
                                             <?php echo csrf_field(); ?>
                                             <input type="text" name="_id" value="<?php echo e($question->id); ?>" hidden>
                                             <button type="submit" class="btn btn-danger">Delete</button>

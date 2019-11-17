@@ -4,7 +4,7 @@
 
 <main>
 
-    <img src="{{ asset('images/resource/slogan1.png') }}" style="height:15%" alt="placeholder+image">
+    <img src="{{ asset('images/resource/slogan.png') }}" style="height:15%" alt="placeholder+image">
 
 
 
@@ -12,12 +12,18 @@
         @include('layout.leftpanel')
         <div class="card col-7">
             <div class="card-header text-center" style="background-color: white">
-                <ul class="nav nav-pills">
+                <ul class="nav nav-pills font-weight-bold" >
                     <li class="nav-item">
                         <a class="nav-link active" data-toggle="pill" href="#home">Recent Question</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="pill" href="#menu1">Hot</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" href="#menu1">Most Answered</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" href="#menu1">No Answers</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="pill" href="#menu1">Week</a>

@@ -68,7 +68,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                        <form action="{{route('deleteTopic')}}" method="post">
+                                        <form action="{{route('adminDeleteTopic')}}" method="post">
                                             @csrf
                                             <input type="text" name="_id" value="{{$question->id}}" hidden>
                                             <button type="submit" class="btn btn-danger">Delete</button>

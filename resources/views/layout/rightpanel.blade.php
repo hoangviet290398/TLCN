@@ -22,8 +22,8 @@
 				<div class="col-1"></div>
 
 			</div> --}}
-    <!-- QuyTran added 23/10/2019 -->
-    <div class="container p-4">
+            <!-- QuyTran added 23/10/2019 -->
+    {{-- <div class="container p-4">
         <div class="row text-center" style="font-size: 11px">
             <div class="col-sm-2"></div>
             <div class="col-sm-4 border border-primary p-4">
@@ -53,70 +53,47 @@
             </div>
             <div class="col-sm-2"></div>
         </div>
-    </div>
+    </div> --}}
     <!-- QuyTran end add -->
 
     <!--QuyTran added 22/10/2019 -->
     <div>
         <h6 class="font-weight-bold ml-3 mt-4"><i class="fa fa-users mr-3"></i>Top Members</h6>
         <br />
+        @foreach($topMembers as $topMember)
         <div class="row px-2 pt-1 pb-1">
             <br />
             <div class="col-sm-3">
 
-                <img src="{{ asset('images/resource/viet.png') }}"
-                    class="img-fluid rounded-circle align-middle user-avatar">
+                <img src="{{ asset('storage/avatars')}}/{{$topMember->avatar}}"
+                class="img-fluid rounded-circle align-middle user-avatar">
             </div>
             <br />
 
             <div class="col-sm-9">
                 <div class="row">
                     <a class="" href="#">
-                        <small class="font-weight-bold" style="color:#5488c7;">Hoang Viet</small>
+                        <small class="font-weight-bold" style="color:#5488c7;">{{$topMember->fullname}}</small>
                     </a>
                 </div>
 
                 <div class="row">
                     <small class="text-muted pr-2" style="color:#5488c7;">
-                        69 Questions
+                        {{$topMember->questions->count()}} Questions
                     </small>
-
+                    <small class="text-muted pr-2" style="color:#5488c7;">
+                       -
+                    </small>
                     <small class="text-muted pr-1" style="color:#5488c7;">
-                        9999 Reputation
+                        {{$topMember->answers->count()}} Answers
                     </small>
                 </div>
             </div>
 
         </div>
         <hr>
-        <div class="row px-2 pt-1 pb-1">
-            <br />
-            <div class="col-sm-3">
-
-                <img src="{{ asset('images/resource/viet.png') }}"
-                    class="img-fluid rounded-circle align-middle user-avatar">
-            </div>
-            <br />
-
-            <div class="col-sm-9">
-                <div class="row">
-                    <a class="" href="#">
-                        <small class="font-weight-bold" style="color:#5488c7;">Hoang Viet</small>
-                    </a>
-                </div>
-
-                <div class="row">
-                    <small class="text-muted pr-2" style="color:#5488c7;">
-                        69 Questions
-                    </small>
-
-                    <small class="text-muted pr-1" style="color:#5488c7;">
-                        9999 Reputation
-                    </small>
-                </div>
-            </div>
-
-        </div>
+        @endforeach
+        
     </div>
 
     <div>
