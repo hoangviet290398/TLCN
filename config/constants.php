@@ -3,6 +3,6 @@
 return [
     'options' => [
         'limitCharacterAttachmentName' => '20',
-        'ItemNumberPerPage' => 5,
+        'ItemNumberPerPage' => 15,
     ]
 ];

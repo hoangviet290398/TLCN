@@ -14,13 +14,13 @@
             <div class="card-header text-center" style="background-color: white">
                 <ul class="nav nav-pills font-weight-bold" >
                     <li class="nav-item">
-                        <a class="nav-link active" href="/">Recent Question</a>
+                        <a class="nav-link" href="/">Recent Question</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Hot</a>
+                        <a class="nav-link" href="#menu1">Hot</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="mostanswered">Most Answered</a>
+                        <a class="nav-link active" href="mostAnswered">Most Answered</a>
                     </li>
                      <li class="nav-item">
                         <a class="nav-link" href="noanswers">No Answers</a>

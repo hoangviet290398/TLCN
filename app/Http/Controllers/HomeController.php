@@ -23,10 +23,32 @@ class HomeController extends Controller
 		return view('home',compact('questions','topMembers'));
 	}
 
+	public function mostAnswered()
+	{
+		$limit=\Config::get('constants.options.ItemNumberPerPage');
+		$questions = Question::orderBy('total_answer', 'desc')->paginate($limit);
+		$questions->setPath('/');
+
+		$topMembers = User::all();
+		
+		return view('home_most_answered',compact('questions','topMembers'));
+	}
+
+	public function noAnswers()
+	{
+		$limit=\Config::get('constants.options.ItemNumberPerPage');
+		$questions = Question::where('total_answer', 0)->paginate($limit);
+		$questions->setPath('/');
+
+		$topMembers = User::all();
+		
+		return view('home_no_answers',compact('questions','topMembers'));
+	}
+
 	public function ajaxSearch(Request $request){
 		$keyword = $request->keyword;
 		$client = new Client();
-		$res = $client->get('http://localhost:9200/q&asystem.questions/_search?q='.$keyword.'&filter_path=hits.hits');
+		$res = $client->get('http://localhost:9200/q&asystem.questions/_search?q="'.$keyword.'"&filter_path=hits.hits');
 		$questions = $res->getBody('hits');
 	
 		$decode = json_decode($questions);
@@ -44,7 +66,7 @@ class HomeController extends Controller
 	public function searchIndex(Request $request){
 		$keyword = $request->keyword;
 		$client = new Client();
-		$res = $client->get('http://localhost:9200/q&asystem.questions/_search?q='.$keyword.'&filter_path=hits.hits');
+		$res = $client->get('http://localhost:9200/q&asystem.questions/_search?q="'.$keyword.'"&filter_path=hits.hits');
 		
 		
 		$questions = $res->getBody('hits');
@@ -52,8 +74,17 @@ class HomeController extends Controller
 		$decode = json_decode($questions);
 		
 		$result = $decode->hits->hits;
-						
-		return view('question.search_result',compact('result','keyword'));
+		$array_id = [];
+		foreach ($result as $key => $value) {
+			array_push($array_id,$value->_id); 
+		}
+		$limit=\Config::get('constants.options.ItemNumberPerPage');
+		$questions = Question::whereIn('_id', $array_id)->paginate($limit);
+		$questions->setPath('/');
+
+		$topMembers = User::all();
+		
+		return view('question.search_result',compact('questions','keyword','topMembers'));
 	}
 
 	public function runSearch($keyword){

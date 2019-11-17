@@ -13,22 +13,22 @@
             <div class="card-header text-center" style="background-color: white">
                 <ul class="nav nav-pills font-weight-bold" >
                     <li class="nav-item">
-                        <a class="nav-link active" data-toggle="pill" href="#home">Recent Question</a>
+                        <a class="nav-link active" href="/">Recent Question</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="pill" href="#menu1">Hot</a>
+                        <a class="nav-link" href="#">Hot</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="pill" href="#menu1">Most Answered</a>
+                        <a class="nav-link" href="mostanswered">Most Answered</a>
                     </li>
                      <li class="nav-item">
-                        <a class="nav-link" data-toggle="pill" href="#menu1">No Answers</a>
+                        <a class="nav-link" href="noanswers">No Answers</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="pill" href="#menu1">Week</a>
+                        <a class="nav-link" href="#menu1">Week</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="pill" href="#menu2">Month</a>
+                        <a class="nav-link" href="#menu2">Month</a>
                     </li>
                 </ul>
             </div>
