@@ -16,22 +16,25 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/">Recent Question</a>
                     </li>
+               
                     <li class="nav-item">
-                        <a class="nav-link" href="#menu1">Hot</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="mostAnswered">Most Answered</a>
+                        <a class="nav-link" href="mostanswered">Most Answered</a>
                     </li>
                      <li class="nav-item">
                         <a class="nav-link active" href="noanswers">No Answers</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#menu1">Week</a>
+                        <a class="nav-link" href="week">Week</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#menu2">Month</a>
+                        <a class="nav-link" href="month">Month</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="year">Year</a>
                     </li>
                 </ul>
+                <br/>
+                <h5 class="text-left">{{number_format($questions->count())}} questions</h5>
             </div>
             <div class="card-body p-0">
                 @foreach($questions as $question)

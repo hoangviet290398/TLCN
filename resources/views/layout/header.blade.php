@@ -37,8 +37,13 @@
                                 <!-- start search block -->
                                 <form id="searchform" class="form-inline-xs" action="{{ route('searchIndex') }}" method="get">
                                     <div class="input-group form-control-sm">
+                                        @if(isset($keyword))
+                                        <input id="search" name="keyword" class="form-control form-control-sm" type="search" placeholder="Type search words"
+                                        title="enter your keyword" autocomplete="off" value="{{$keyword}}">
+                                        @else
                                         <input id="search" name="keyword" class="form-control form-control-sm" type="search" placeholder="Type search words"
                                         title="enter your keyword" autocomplete="off">
+                                        @endif
                                         <div id="result_list" class="scrollbar scrollbar-lady-lips dropdown-menu"></div>
                                  {{--    <div class="input-group-prepend">
                                         <button class="btn bg-light font-weight-bold form-control-sm" type="button"
@@ -79,7 +84,7 @@
                             Notification
                         </h6>
                         @foreach(Auth::user()->notifications()->orderBy('created_at', 'DESC')->take(4)->get() as $notification)
-                        <a class="dropdown-item d-flex align-items-center" href="/topic/{{ $notification->question_id }}" style="border-width: 1px; border-bottom-style: solid; border-color: #b2bec3;">
+                        <a class="dropdown-item d-flex align-items-center noti_item" href="/topic/{{ $notification->question_id }}" style="border-width: 1px; border-bottom-style: solid; border-color: #b2bec3;">
                           
                                     <img src="{{ asset('storage/avatars')}}/{{$notification->actor()->first()->avatar}}" class="dot mr-4">
                             
@@ -88,7 +93,7 @@
                                
                            
                                 <div class="small text-gray-500" style="font-size: 10px">{{ $notification->created_at->toDayDateTimeString() }}</div>
-                                <span class="font-weight-bold" style="color: blue; font-size: 13px"> {{ $notification->actor()->first()->fullname.' '.$notification->action.' your '.$notification->target }}</span>
+                                <span class="font-weight-bold" style="color:#1e3799;font-size: 13px"> {{ $notification->actor()->first()->fullname.' '.$notification->action.' your '.$notification->target }}</span>
 
                             </div>
 
@@ -97,7 +102,7 @@
                         
                         @endforeach
                         
-                        <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                        <a class="dropdown-item text-center small text-gray-500 noti_item" href="#">Show All Alerts</a>
                     </div>
                 </div>
                 <!-- end notification block -->

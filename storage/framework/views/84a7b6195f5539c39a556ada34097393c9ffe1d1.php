@@ -37,8 +37,13 @@
                                 <!-- start search block -->
                                 <form id="searchform" class="form-inline-xs" action="<?php echo e(route('searchIndex')); ?>" method="get">
                                     <div class="input-group form-control-sm">
+                                        <?php if(isset($keyword)): ?>
+                                        <input id="search" name="keyword" class="form-control form-control-sm" type="search" placeholder="Type search words"
+                                        title="enter your keyword" autocomplete="off" value="<?php echo e($keyword); ?>">
+                                        <?php else: ?>
                                         <input id="search" name="keyword" class="form-control form-control-sm" type="search" placeholder="Type search words"
                                         title="enter your keyword" autocomplete="off">
+                                        <?php endif; ?>
                                         <div id="result_list" class="scrollbar scrollbar-lady-lips dropdown-menu"></div>
                                  
                             </div>
@@ -70,7 +75,7 @@
                             Notification
                         </h6>
                         <?php $__currentLoopData = Auth::user()->notifications()->orderBy('created_at', 'DESC')->take(4)->get(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $notification): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <a class="dropdown-item d-flex align-items-center" href="/topic/<?php echo e($notification->question_id); ?>" style="border-width: 1px; border-bottom-style: solid; border-color: #b2bec3;">
+                        <a class="dropdown-item d-flex align-items-center noti_item" href="/topic/<?php echo e($notification->question_id); ?>" style="border-width: 1px; border-bottom-style: solid; border-color: #b2bec3;">
                           
                                     <img src="<?php echo e(asset('storage/avatars')); ?>/<?php echo e($notification->actor()->first()->avatar); ?>" class="dot mr-4">
                             
@@ -79,7 +84,7 @@
                                
                            
                                 <div class="small text-gray-500" style="font-size: 10px"><?php echo e($notification->created_at->toDayDateTimeString()); ?></div>
-                                <span class="font-weight-bold" style="color: blue; font-size: 13px"> <?php echo e($notification->actor()->first()->fullname.' '.$notification->action.' your '.$notification->target); ?></span>
+                                <span class="font-weight-bold" style="color:#1e3799;font-size: 13px"> <?php echo e($notification->actor()->first()->fullname.' '.$notification->action.' your '.$notification->target); ?></span>
 
                             </div>
 
@@ -88,7 +93,7 @@
                         
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         
-                        <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                        <a class="dropdown-item text-center small text-gray-500 noti_item" href="#">Show All Alerts</a>
                     </div>
                 </div>
                 <!-- end notification block -->

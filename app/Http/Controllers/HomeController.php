@@ -37,12 +37,48 @@ class HomeController extends Controller
 	public function noAnswers()
 	{
 		$limit=\Config::get('constants.options.ItemNumberPerPage');
-		$questions = Question::where('total_answer', 0)->paginate($limit);
+		$questions = Question::where('total_answer', 0)->orderBy('created_at', 'desc')->paginate($limit);
 		$questions->setPath('/');
 
 		$topMembers = User::all();
 		
 		return view('home_no_answers',compact('questions','topMembers'));
+	}
+
+	public function week()
+	{
+		$limit=\Config::get('constants.options.ItemNumberPerPage');
+	
+		$questions = Question::where('created_at','>=', Carbon::now()->startOfWeek())->orderBy('created_at', 'desc')->paginate($limit);
+	
+
+		$topMembers = User::all();
+		
+		return view('home_week',compact('questions','topMembers'));
+	}
+
+	public function month()
+	{
+		$limit=\Config::get('constants.options.ItemNumberPerPage');
+	
+		$questions = Question::where('created_at','>=', Carbon::now()->startOfMonth())->orderBy('created_at', 'desc')->paginate($limit);
+	
+
+		$topMembers = User::all();
+		
+		return view('home_month',compact('questions','topMembers'));
+	}
+
+	public function year()
+	{
+		$limit=\Config::get('constants.options.ItemNumberPerPage');
+	
+		$questions = Question::where('created_at','>=', Carbon::now()->startOfYear())->orderBy('created_at', 'desc')->paginate($limit);
+	
+
+		$topMembers = User::all();
+		
+		return view('home_year',compact('questions','topMembers'));
 	}
 
 	public function ajaxSearch(Request $request){

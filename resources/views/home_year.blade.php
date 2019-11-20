@@ -14,8 +14,9 @@
             <div class="card-header text-center" style="background-color: white">
                 <ul class="nav nav-pills font-weight-bold" >
                     <li class="nav-item">
-                        <a class="nav-link active" href="/">Recent Question</a>
+                        <a class="nav-link" href="/">Recent Question</a>
                     </li>
+              
                     <li class="nav-item">
                         <a class="nav-link" href="mostanswered">Most Answered</a>
                     </li>
@@ -29,13 +30,12 @@
                         <a class="nav-link" href="month">Month</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="year">Year</a>
+                        <a class="nav-link active" href="year">Year</a>
                     </li>
                 </ul>
                 <br/>
                 <h5 class="text-left">{{number_format($questions->count())}} questions</h5>
             </div>
-
             <div class="card-body p-0">
                 @foreach($questions as $question)
                 <div class="row px-3 pt-3">

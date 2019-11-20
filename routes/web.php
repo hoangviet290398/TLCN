@@ -14,6 +14,9 @@ use App\Question_Search;
 Route::get('/','HomeController@index')->name('homePage');
 Route::get('mostanswered','HomeController@mostAnswered')->name('mostAnswered');
 Route::get('noanswers','HomeController@noAnswers')->name('noAnswers');
+Route::get('week','HomeController@week')->name('week');
+Route::get('month','HomeController@month')->name('month');
+Route::get('year','HomeController@year')->name('year');
 
 Route::get('signup','SignUpController@index')->name('signUp');
 Route::post('signup','SignUpController@store')->name('signUpStore');

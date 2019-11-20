@@ -7,13 +7,13 @@ use Carbon\Carbon;
 @endphp
 
 <main>								
-	<img src="{{ asset('images/resource/slogan.png') }}" style="height:15%" alt="placeholder+image">
+	{{-- <img src="{{ asset('images/resource/slogan.png') }}" style="height:15%" alt="placeholder+image"> --}}
 
 	<div class="mt-1 d-flex justify-content-center">
 		@include('layout.leftpanel')
 		<div class="card col-7">
-			<div class="card-header text-center" style="background-color: white">
-				<ul class="nav nav-pills font-weight-bold" >
+			<div class="card-header text-left" style="background-color: white">
+				{{-- <ul class="nav nav-pills font-weight-bold" >
 					<li class="nav-item">
 						<a class="nav-link active" data-toggle="pill" href="#home">Recent Question</a>
 					</li>
@@ -32,7 +32,18 @@ use Carbon\Carbon;
 					<li class="nav-item">
 						<a class="nav-link" data-toggle="pill" href="#menu2">Month</a>
 					</li>
-				</ul>
+				</ul> --}}
+				<h2>Results for "{{$keyword}}"</h2>
+				<form action="{{ route('searchIndex') }}" method="get">
+					<div class="input-group mb-4">
+						<input type="search" name="keyword" placeholder="" aria-describedby="button-addon5" class="form-control" value="{{$keyword}}">
+						<div class="input-group-append">
+							<button id="button-addon5" type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+						</div>
+					</div>
+				</form>
+				<br/>
+				<h5 class="text-left">{{number_format($questions->count())}} results</h5>
 			</div>
 			<div class="card-body p-0">
 				@foreach($questions as $question)
@@ -57,60 +68,60 @@ use Carbon\Carbon;
 
 
 									</div>
-                          
-                            </div>
 
-                            <p class="pv-archiveText">{{$question->content}}</p>
-                            <!-- QuyTran added -->
-                            <div class="row">
-                            	<div class="pl-3 pt-1 pb-3">
-                            		<a href="#" class="border text-muted p-1 rounded ">
-                            			{{$question->category->name}}
-                            		</a>
+								</div>
 
-                            	</div>
-                            </div>
-                            <!-- QuyTran end add -->
-                            <div class="ml-3">
-                            	<div class="row col-sm-12 bg-light py-3" style="">
-                            		<div class="col-sm-3 px-1">
-                            			<div class="border rounded text-muted bg-white text-center px-1">
-                            				<i class="fa fa-thumbs-up"></i>
-                            				{{$question->total_like}} likes
-                            			</div>
-                            		</div>
-                            		<div class="col-sm-3 px-1">
-                            			<div class="border rounded text-muted bg-white text-center">
-                            				<i class="fa fa-thumbs-down"></i>
-                            				{{$question->total_dislike}} dislikes
-                            			</div>
-                            		</div>
+								<p class="pv-archiveText">{{$question->content}}</p>
+								<!-- QuyTran added -->
+								<div class="row">
+									<div class="pl-3 pt-1 pb-3">
+										<a href="#" class="border text-muted p-1 rounded ">
+											{{$question->category->name}}
+										</a>
 
-                            		<div class="col-sm-3 px-1">
-                            			<div class="border rounded text-muted bg-white text-center">
-                            				<i class="fa fa-comment"></i>
-                            				{{$question->total_answer}} answers
-                            			</div>
-                            		</div>
+									</div>
+								</div>
+								<!-- QuyTran end add -->
+								<div class="ml-3">
+									<div class="row col-sm-12 bg-light py-3" style="">
+										<div class="col-sm-3 px-1">
+											<div class="border rounded text-muted bg-white text-center px-1">
+												<i class="fa fa-thumbs-up"></i>
+												{{$question->total_like}} likes
+											</div>
+										</div>
+										<div class="col-sm-3 px-1">
+											<div class="border rounded text-muted bg-white text-center">
+												<i class="fa fa-thumbs-down"></i>
+												{{$question->total_dislike}} dislikes
+											</div>
+										</div>
+
+										<div class="col-sm-3 px-1">
+											<div class="border rounded text-muted bg-white text-center">
+												<i class="fa fa-comment"></i>
+												{{$question->total_answer}} answers
+											</div>
+										</div>
 
 
-                            		<div class="col-sm-3">
-                            			<a href="#" class="border rounded text-light bg-dark text-center px-4" style="font-size:18px">Answer</a>
+										<div class="col-sm-3">
+											<a href="#" class="border rounded text-light bg-dark text-center px-4" style="font-size:18px">Answer</a>
 
-                            		</div>
+										</div>
 
-                            	</div>
-                            </div>
+									</div>
+								</div>
 
-                        </div>
+							</div>
 
-                    </div>
-                    <hr>
-                    @endforeach
-                     <div class="row px-3 pt-3 justify-content-sm-center">{!! $questions->links() !!}</div>
-                </div>
-            </div>
-            @include('layout.rightpanel')
+						</div>
+						<hr>
+						@endforeach
+						<div class="row px-3 pt-3 justify-content-sm-center">{!! $questions->links() !!}</div>
+					</div>
+				</div>
+				@include('layout.rightpanel')
 
-        </main>
-        @endsection
+			</main>
+			@endsection
