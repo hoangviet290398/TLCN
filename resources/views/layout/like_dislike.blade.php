@@ -21,7 +21,11 @@
 
 
     <div class="col-sm-3">
-        <a href="#" class="border rounded text-light bg-dark text-center px-4" style="font-size:18px">Answer</a>
+        @if(Auth::check())
+        <a href="topic/{{ $question->id }}" class="border rounded text-light bg-dark text-center px-4 text-decoration-none" style="font-size:18px">Answer</a>
+        @else
+        <a href="/signin" class="border rounded text-light bg-dark text-center px-4 text-decoration-none" style="font-size:18px">Answer</a>
+        @endif
 
     </div>
 

@@ -51,7 +51,7 @@ use Carbon\Carbon;
 					<div class="col-sm-1"><img src="{{ asset('storage/avatars')}}/{{$question->user->avatar}}"
 						class="img-fluid rounded-circle align-middle user-avatar"></div>
 						<div class="col-sm-11">
-							<a href="/personalinfomation/{{ $question->user->_id }}">
+							<a href="/personalinfomation/{{ $question->user->_id }}" class="text-decoration-none">
 								<small class="font-weight-bold" style="color:#5488c7;">{{$question->user->fullname}}</small>
 							</a>
 							<small class="text-muted pl-4" style="color:#5488c7;">asked:
@@ -62,7 +62,7 @@ use Carbon\Carbon;
 							<div class="row">
 								<div class="col-12">
 									<div class="word-wrap">
-										<a href="topic/{{ $question->_id }}">
+										<a href="topic/{{ $question->_id }}" class="text-decoration-none">
 											<h5>{{$question->title}}</h5>
 										</a></div>
 

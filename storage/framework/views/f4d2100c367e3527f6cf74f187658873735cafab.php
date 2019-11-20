@@ -41,7 +41,7 @@
                     <div class="col-sm-1"><img src="<?php echo e(asset('storage/avatars')); ?>/<?php echo e($question->user->avatar); ?>"
                             class="img-fluid rounded-circle align-middle user-avatar"></div>
                     <div class="col-sm-11">
-                        <a href="/personalinfomation/<?php echo e($question->user->_id); ?>">
+                        <a href="/personalinfomation/<?php echo e($question->user->_id); ?>" class="text-decoration-none">
                             <small class="font-weight-bold" style="color:#5488c7;"><?php echo e($question->user->fullname); ?></small>
                         </a>
                         <small class="text-muted pl-4" style="color:#5488c7;">asked:
@@ -52,7 +52,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="word-wrap">
-                                    <a href="topic/<?php echo e($question->id); ?>">
+                                    <a class="text-decoration-none" href="topic/<?php echo e($question->id); ?>">
                                         <h5><?php echo e($question->title); ?></h5>
                                     </a></div>
 
