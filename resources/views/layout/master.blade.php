@@ -56,6 +56,8 @@
             $("#unread_notification").remove();
         }
         @endif
+
+        
     </script>
 </body>
   @include('layout.footer')

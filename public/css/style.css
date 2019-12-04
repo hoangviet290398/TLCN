@@ -151,3 +151,28 @@ body{
 .noti_item:hover{
 	background-color: #dcdde1;
 }
+
+#like_button:hover{
+	cursor: pointer;
+}
+
+#dislike_button:hover{
+	cursor: pointer;
+}
+
+#like_bestanswer_button:hover{
+	cursor: pointer;
+}
+
+#dislike_bestanswer_button:hover{
+	cursor: pointer;
+}
+
+#like_answer_button:hover{
+	cursor: pointer;
+}
+
+#dislike_answer_button:hover{
+	cursor: pointer;
+}
+

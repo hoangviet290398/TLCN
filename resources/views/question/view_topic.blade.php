@@ -1,6 +1,9 @@
 @extends('layout.master')
 
 @section('title','View topic')
+@php
+use App\LikeDislike;
+@endphp
 
 @section('js')
 <script>
@@ -23,19 +26,212 @@
         }
     }
 
-    // var containers = document.getElementsByClassName("image-markdown");
-    // for (index_container = 0; index_container < containers.length; index_container++) {
-    //     var imgs = containers[index_container].getElementsByTagName("IMG");
-    //     for (index_img = 0; index_img < imgs.length; index_img++) {
-    //         imgs[index_img].setAttribute("class", "h-100 w-100");
-    //     }
-    // }
+    $('#large_like').click('#like_button', function () {
+            var question_id = $(this).data("value");
+            var post_type = "Question";
+          
+            if (question_id != '') {
+                $.ajax({
+                    url: "{{ route('like') }}",
+                    method: "GET",
+                    data: {
+                        question_id,
+                        post_type
+                    },
+                    success: function (data) {
+                        data = $.parseJSON(data);
+                        
+                        if(data.status == true){
+                                                            
+                            $("#large_like").load(location.href + " #large_like"); 
+                            $("#large_dislike").load(location.href + " #large_dislike");                                                                                            
+                        }
+                        else{
+                            
+                        }
+                    }
+                })
+            }
+            else{
+               alert('false');
+            }
+        });
+
+    $('#large_dislike').click('#dislike_button', function () {
+            var question_id = $(this).data("value");
+            var post_type = "Question";
+            console.log(question_id);
+          
+            if (question_id != '') {
+                $.ajax({
+                    url: "{{ route('dislike') }}",
+                    method: "GET",
+                    data: {
+                        question_id,
+                        post_type
+                    },
+                    success: function (data) {
+                        data = $.parseJSON(data);
+                        
+                        if(data.status == true){
+                                                            
+                            $("#large_dislike").load(location.href + " #large_dislike");
+                            $("#large_like").load(location.href + " #large_like");                                                                                              
+                        }
+                        else{
+                            
+                        }
+                    }
+                })
+            }
+            else{
+               alert('false');
+            }
+        });
+
+    $('#large_like_bestanswer').click('#like_bestanswer_button', function () {
+            var question_id = $(this).data("value");
+            var post_type = "Answer";
+            
+            if (question_id != '') {
+                $.ajax({
+                    url: "{{ route('like') }}",
+                    method: "GET",
+                    data: {
+                        question_id,
+                        post_type
+                    },
+                    success: function (data) {
+                        data = $.parseJSON(data);
+                        
+                        if(data.status == true){
+                                                            
+                            $("#large_like_bestanswer").load(location.href + " #large_like_bestanswer"); 
+                            $("#large_dislike_bestanswer").load(location.href + " #large_dislike_bestanswer");                                                                                            
+                        }
+                        else{
+                            
+                        }
+                    }
+                })
+            }
+            else{
+               alert('false');
+            }
+        });
+
+    $('#large_dislike_bestanswer').click('#dislike_bestanswer_button', function () {
+            var question_id = $(this).data("value");
+            var post_type = "Answer";
+          
+            if (question_id != '') {
+                $.ajax({
+                    url: "{{ route('dislike') }}",
+                    method: "GET",
+                    data: {
+                        question_id,
+                        post_type
+                    },
+                    success: function (data) {
+                        data = $.parseJSON(data);
+                        
+                        if(data.status == true){
+                                                            
+                            $("#large_dislike_bestanswer").load(location.href + " #large_dislike_bestanswer"); 
+                            $("#large_like_bestanswer").load(location.href + " #large_like_bestanswer");                                                                                            
+                        }
+                        else{
+                            
+                        }
+                    }
+                })
+            }
+            else{
+               alert('false');
+            }
+        });
+
+
+    $('#large_like_answer').click('#like_answer_button', function () {
+            var question_id = $(this).data("value");
+            var post_type = "Answer";
+            console.log(question_id);
+            if (question_id != '') {
+                $.ajax({
+                    url: "{{ route('like') }}",
+                    method: "GET",
+                    data: {
+                        question_id,
+                        post_type
+                    },
+                    success: function (data) {
+                        data = $.parseJSON(data);
+                        
+                        if(data.status == true){
+                                                            
+                            $("#large_like_answer").load(location.href + " #large_like_answer"); 
+                            $("#large_dislike_answer").load(location.href + " #large_dislike_answer");                                                                                            
+                        }
+                        else{
+                            
+                        }
+                    }
+                })
+            }
+            else{
+               alert('false');
+            }
+        });
+
+    $('#large_dislike_answer').click('#dislike_answer_button', function () {
+            var question_id = $(this).data("value");
+            var post_type = "Answer";
+            console.log(question_id);
+            if (question_id != '') {
+                $.ajax({
+                    url: "{{ route('dislike') }}",
+                    method: "GET",
+                    data: {
+                        question_id,
+                        post_type
+                    },
+                    success: function (data) {
+                        data = $.parseJSON(data);
+                        
+                        if(data.status == true){
+                                                            
+                            $("#large_dislike_answer").load(location.href + " #large_dislike_answer"); 
+                            $("#large_like_answer").load(location.href + " #large_like_answer");                                                                                            
+                        }
+                        else{
+                            
+                        }
+                    }
+                })
+            }
+            else{
+               alert('false');
+            }
+        });
+
+    // 
+
+
+
+
+    var containers = document.getElementsByClassName("image-markdown");
+    for (index_container = 0; index_container < containers.length; index_container++) {
+        var imgs = containers[index_container].getElementsByTagName("IMG");
+        for (index_img = 0; index_img < imgs.length; index_img++) {
+            imgs[index_img].setAttribute("class", "h-100 w-100");
+        }
+    }
 
 </script>
 @endsection
 
 @section('content')
-<div class="mt-1 d-flex justify-content-center">
+<div class="mt-1 d-flex justify-content-center" >
 @include('layout.leftpanel')
 <div class="card col-7">
 
@@ -54,7 +250,7 @@
                     @if((Auth::check()) and ($question->user_id==Auth::user()->id))
                         <a href="#myModal" data-toggle="modal">
                             <i class="float-right fa fa-trash" aria-hidden="true"
-                                style="margin-right:10px; font-size: 30px; "></i></a>
+                                style="margin-right:10px; font-size: 15px; "></i></a>
                         <!-- Modal HTML -->
                         <div id="myModal" class="modal fade" tabindex="-1">
                             <div class="modal-dialog">
@@ -68,7 +264,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                        <form action="{{route('adminDeleteTopic')}}" method="post">
+                                        <form action="{{route('deleteTopic')}}" method="post">
                                             @csrf
                                             <input type="text" name="_id" value="{{$question->id}}" hidden>
                                             <button type="submit" class="btn btn-danger">Delete</button>
@@ -78,12 +274,12 @@
                             </div>
                         </div>
                         <a href="{{asset('edittopic')}}/{{ $question->id }}"><i class="float-right fa fa-pencil-square-o"
-                                aria-hidden="true" style="margin-right:10px; font-size:30px"></i></a>
+                                aria-hidden="true" style="margin-right:10px; font-size:15px"></i></a>
                     @endif
 
                 </div>
                 <div>
-                    <small class="text-muted" style="color:#5488c7;">
+                    <small class="text-muted" style="color:#5488c7;" data-toggle="tooltip" title="{{$question->created_at->toDayDateTimeString()}}">
                         <i class="fa fa-clock-o" aria-hidden="true"> </i>
                         {{$question->created_at->diffForHumans()}}
                     </small>
@@ -105,7 +301,7 @@
 
 
             <!-- Start Question Content Block -->
-            <div class="col-sm-12 px-3">
+            <div class="col-sm-12 px-3" id="big">
                 <div class="image-markdown">{!! $question->content !!}</div>
                 @if($question->attachment_path)
                 <b class="badge badge-warning">Attachment:</b>
@@ -113,21 +309,36 @@
                     href="{{asset('storage/files/'.$question->attachment_path)}}"><i>{{$question->attachment_path}}</i></a>
 
                 @endif
-                <div class="row"
+                <div class="row" id="large"
                     style="width: 500px; color:#787878; font-size: 20px; margin-bottom: 10px; margin-left: 5px;">
-                    <div class="col-xs" style="width:70px">
+                    <div class="col-xs" style="width:70px" id="large_like" data-value="{{$question->id}}">
                         @if (Auth::check())
-                            <a href="{{asset('like')}}/{{$question->_id}}/Question">
-                                <i class="fa fa-thumbs-up"></i></a> {{$question->total_like}}
+                            @if(LikeDislike::where('post_id',$question->id)->where('user_id',Auth::user()->id)->where('action','Like')->count()!= 0)
+                           
+                                {{-- <input type="text" id="question_id" value="{{$question->id}}" hidden> --}}
+                               <i class="fa fa-thumbs-up" style="color: blue;" id="like_button"></i>
+                                {{$question->total_like}}
+                            @else
+                                <i class="fa fa-thumbs-up" style="color: #787878;" id="like_button"></i>
+                                {{$question->total_like}}
+                            @endif
+
                         @else
                             <i class="fa fa-thumbs-up" style="color:#787878"></i>
                             {{$question->total_like}}
                         @endif
                     </div>
-                    <div class="col-xs" style="width:70px">
+                    <div class="col-xs" style="width:70px" id="large_dislike" data-value="{{$question->id}}">
                         @if (Auth::check())
-                            <a href="{{asset('dislike')}}/{{$question->_id}}/Question">
-                                <i class="fa fa-thumbs-down"></i></a> {{$question->total_dislike}}
+
+                            @if(LikeDislike::where('post_id',$question->id)->where('user_id',Auth::user()->id)->where('action','Dislike')->count()!= 0)
+                             <i class="fa fa-thumbs-down" style="color: red;" id="dislike_button"></i>
+                                {{$question->total_dislike}}
+                            @else
+                                <i class="fa fa-thumbs-down" style="color: #787878;" id="dislike_button"></i>
+                                {{$question->total_dislike}}
+                            @endif
+
                         @else
                             <i class="fa fa-thumbs-down" style="color:#787878"></i>
                             {{$question->total_dislike}}
@@ -181,7 +392,7 @@
     <!-- End Insert Answer Block -->
 
     <!-- Start Answer Block -->
-    <div class="" style="margin-top: 20px; margin-bottom: 20px; ">
+    <div class="" style="margin-top: 20px; margin-bottom: 20px; " id="answer_block">
         <div class="card-header">
             <h3><i class="fa fa-angle-double-right"></i> Answers:</h3>
         </div>
@@ -203,7 +414,7 @@
                 <div class="float-left">
                 <a href="/personalinfomation/{{ $bestAnswer->user->_id }}" style="color:#787878; font-size: 20px">{{$bestAnswer->user->fullname}}</a>
                 <br>
-                    <small class="text-muted" style="color:#5488c7;">
+                    <small class="text-muted" style="color:#5488c7;" data-toggle="tooltip" title="{{$bestAnswer->created_at->toDayDateTimeString()}}">
                         <i class="fa fa-clock-o" aria-hidden="true"> </i>
                         {{$bestAnswer->created_at->diffForHumans()}}
                     </small>
@@ -211,7 +422,7 @@
 
                 @if (Auth::check() and (Auth::user()->id==$bestAnswer->user_id))
                     <a href="{{asset('editanswer')}}/{{ $bestAnswer->id }}">
-                        <i class="float-right fa fa-pencil-square-o ml-2" aria-hidden="true" style="font-size:30px"></i>
+                        <i class="float-right fa fa-pencil-square-o ml-2" aria-hidden="true" style="font-size:15px"></i>
                     </a>
                 @endif
                 <br>
@@ -223,19 +434,29 @@
                     <a href="{{asset('storage/files/'.$bestAnswer->attachment_path)}}"><i>{{$bestAnswer->attachment_path}}</i></a>
                 @endif
                 <div class="row" style=" color:#787878; font-size: 20px ; margin-bottom: 10px">
-                    <div class="col-1">
+                    <div class="col-1"  id="large_like_bestanswer" data-value="{{$bestAnswer->id}}">
                         @if(Auth::check())
-                            <a href="{{asset('like')}}/{{$bestAnswer->_id}}/Answer">
-                                <i class="fa fa-thumbs-up"></i></a> {{$bestAnswer->total_like}}
+                            @if(LikeDislike::where('post_id',$bestAnswer->id)->where('user_id',Auth::user()->id)->where('action','Like')->count()!= 0)
+                              
+                                <i class="fa fa-thumbs-up" style="color: blue;" id="like_bestanswer_button"></i> {{$bestAnswer->total_like}}
+                            @else
+                                <input type="text" id="bestanswer_id" value="{{$bestAnswer->id}}" hidden>
+                                <i class="fa fa-thumbs-up" style="color: #787878;" id="like_bestanswer_button"></i> {{$bestAnswer->total_like}}
+                            @endif
                         @else
                             <i class="fa fa-thumbs-up" style="color:#787878"></i>
                             {{$bestAnswer->total_like}}
                         @endif
                     </div>
-                    <div class="col-1">
+                    <div class="col-1" id="large_dislike_bestanswer" data-value="{{$bestAnswer->id}}">
                         @if(Auth::check())
-                            <a href="{{asset('dislike')}}/{{$bestAnswer->_id}}/Answer">
-                                <i class="fa fa-thumbs-down"></i></a> {{$bestAnswer->total_dislike}}
+                            @if(LikeDislike::where('post_id',$bestAnswer->id)->where('user_id',Auth::user()->id)->where('action','Dislike')->count()!= 0)
+                               
+                                <i class="fa fa-thumbs-down" style="color: red;" id="dislike_bestanswer_button"></i> {{$bestAnswer->total_dislike}}
+                            @else
+                              
+                                <i class="fa fa-thumbs-down" style="color: #787878;" id="dislike_bestanswer_button"></i> {{$bestAnswer->total_dislike}}
+                            @endif
                         @else
                             <i class="fa fa-thumbs-down" style="color:#787878"></i>
                             {{$bestAnswer->total_dislike}}
@@ -243,8 +464,13 @@
                     </div>
                     @if (Auth::check() and (Auth::user()->id==$question->user_id))
                         <div class="col-10 justify-content-sm-end">
+
                             <a href="{{asset('removebestanswer')}}/{{$bestAnswer->_id}}"><button type="button"
                                     class="float-right btn btn-warning">Remove Best Answer</button></a>
+                                   {{--  <input type="text" id="remove_bestanswer_id" value="{{$bestAnswer->_id}}" hidden>
+                                   <button type="button" id="remove_bestanswer_button" 
+                                    class="float-right btn btn-warning">Remove Best Answer
+                                   </button> --}}
                         </div>
                     @endif
                 </div>
@@ -274,7 +500,7 @@
                         <div class="float-left">
                             <a href="/personalinfomation/{{ $answer->user->_id }}" style="color:#787878; font-size: 20px">{{$answer->user->fullname}}</a>
                             <br>
-                            <small class="text-muted" style="color:#5488c7;">
+                            <small class="text-muted" style="color:#5488c7;" data-toggle="tooltip" title="{{$answer->created_at->toDayDateTimeString()}}">
                                 <i class="fa fa-clock-o" aria-hidden="true"> </i>
                                 {{$answer->created_at->diffForHumans()}}
                             </small>
@@ -283,7 +509,7 @@
                         @if (Auth::check() and (Auth::user()->id==$answer->user_id))
                        
                             <a href="{{asset('editanswer')}}/{{ $answer->id }}"><i class="float-right fa fa-pencil-square-o ml-2"
-                                aria-hidden="true" style="font-size:30px"></i> </a>
+                                aria-hidden="true" style="font-size:15px"></i> </a>
                         
                         @endif
                         <br>
@@ -296,29 +522,41 @@
                                 href="{{asset('storage/files/'.$answer->attachment_path)}}"><i>{{$answer->attachment_path}}</i></a>
                         @endif
                         <div class="row" style=" color:#787878; font-size: 20px ; margin-bottom: 10px">
-                            <div class="col-1">
+                            <div class="col-1" id="large_like_answer" data-value="{{$answer->id}}">
                                 @if(Auth::check())
-                                    <a href="{{asset('like')}}/{{$answer->_id}}/Answer">
-                                        <i class="fa fa-thumbs-up"></i></a> {{$answer->total_like}}
+                                    @if(LikeDislike::where('post_id',$answer->id)->where('user_id',Auth::user()->id)->where('action','Like')->count()!= 0)
+                                       
+                                        <i class="fa fa-thumbs-up" style="color: blue;" id="like_answer_button"></i> {{$answer->total_like}}
+                                    @else
+                                       
+                                        <i class="fa fa-thumbs-up" style="color: #787878;" id="like_answer_button"></i> {{$answer->total_like}}
+                                    @endif
                                 @else
-                                    <i class="fa fa-thumbs-up"></i>
-                                    {{$answer->total_like}}
+                                        <i class="fa fa-thumbs-up" style="color:#787878"></i>
+                                        {{$answer->total_like}}
                                 @endif
                             </div>
-                            <div class="col-1">
+                            <div class="col-1" id="large_dislike_answer" data-value="{{$answer->id}}">
                                 @if(Auth::check())
-                                    <a href="{{asset('dislike')}}/{{$answer->_id}}/Answer">
-                                        <i class="fa fa-thumbs-down"></i></a>
-                                    {{$answer->total_dislike}}
+                                    @if(LikeDislike::where('post_id',$answer->id)->where('user_id',Auth::user()->id)->where('action','Dislike')->count()!= 0)
+                                      
+                                        <i class="fa fa-thumbs-down" style="color: red;" id="dislike_answer_button"></i> {{$answer->total_dislike}}
+                                    @else
+                                       
+                                        <i class="fa fa-thumbs-down" style="color: #787878;" id="dislike_answer_button"></i> {{$answer->total_dislike}}
+                                    @endif
                                 @else
-                                    <i class="fa fa-thumbs-down"></i>
-                                    {{$answer->total_dislike}}
+                                        <i class="fa fa-thumbs-down" style="color:#787878"></i>
+                                        {{$answer->total_dislike}}
                                 @endif
                             </div>
                             @if (Auth::check() and(Auth::user()->id==$question->user_id))                  
                                 <div class='col-10 justify-content-sm-end'>
                                     <a href="{{asset('bestanswer')}}/{{$answer->_id}}"><button type="button"
                                             class="float-right btn btn-success">Best Answer</button></a>
+                                    {{-- <input type="text" id="vote_bestanswer_id" value="{{$answer->id}}" hidden>
+                                    <button type="button" id="vote_bestanswer_button" 
+                                            class="float-right btn btn-success">Best Answer</button> --}}
                                 </div>
                             @endif
                         </div>

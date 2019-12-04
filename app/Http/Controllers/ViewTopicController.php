@@ -43,6 +43,7 @@ class ViewTopicController extends Controller
 
     public function bestAnswer($id_answer)
     {
+        
         $answer = Answer::find($id_answer);
         $question = $answer->question;
         if (Auth::user()->id==$question->user_id) 
@@ -54,20 +55,23 @@ class ViewTopicController extends Controller
 
         }       
 
-        return redirect()->back();
+         return redirect()->back();      
     }
 
     public function removeBestAnswer($id_answer)
     {
+       
         $question = Answer::find($id_answer)->question;
         if (Auth::user()->id==$question->user_id)
         {            
             $question->best_answer_id = null;
+            echo var_dump($question->best_answer_id);
+
             $question->save();
         }
         
 
-        return redirect()->back();        
+        return redirect()->back(); 
     }
     
     public function checkLike($post_id,$post_type,$user_id)
@@ -84,8 +88,10 @@ class ViewTopicController extends Controller
         return $user_disliked;
     }
 
-    public function like($post_id,$post_type)
+    public function like(Request $request)
     {
+        $post_id = $request->question_id;
+        $post_type = $request->post_type;
         $user_liked    =$this->checkLike($post_id,$post_type,Auth::user()->id);
         $user_disliked =$this->checkDislike($post_id,$post_type,Auth::user()->id);
         
@@ -139,11 +145,15 @@ class ViewTopicController extends Controller
             $user_liked->delete();
         }
 
-        return redirect()->back();  
+        $data['status'] = true;
+
+        echo json_encode($data);  
     }
 
-    public function dislike($post_id,$post_type)
+    public function dislike(Request $request)
     {
+        $post_id = $request->question_id;
+        $post_type = $request->post_type;
         $user_liked=$this->checkLike($post_id,$post_type,Auth::user()->id);
         $user_disliked=$this->checkDislike($post_id,$post_type,Auth::user()->id);
         if (!$user_disliked)
@@ -196,7 +206,9 @@ class ViewTopicController extends Controller
             $user_disliked->delete();
         }
        
-        return redirect()->back();        
+        $data['status'] = true;
+
+        echo json_encode($data);   
     }
 
     public function addLikeDislike($post_id,$post_type,$user,$action)

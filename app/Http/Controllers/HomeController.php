@@ -123,24 +123,24 @@ class HomeController extends Controller
 		return view('question.search_result',compact('questions','keyword','topMembers'));
 	}
 
-	public function runSearch($keyword){
-		$fullText = Question::whereRaw(array('$text'=>array('$search'=> $keyword)))->get();
+	// public function runSearch($keyword){
+	// 	$fullText = Question::whereRaw(array('$text'=>array('$search'=> $keyword)))->get();
 
-		return $fullText;
-	}
+	// 	return $fullText;
+	// }
 
-	public function getQuestion(){
-		$client = new Client();
-		$res = $client->get('http://localhost:9200/q&asystem.questions/_search?q=title:VietPham');
+	// public function getQuestion(){
+	// 	$client = new Client();
+	// 	$res = $client->get('http://localhost:9200/q&asystem.questions/_search?q=title:VietPham');
 
-		$keyword = 'VietPham';
-		$questions = $this->runSearch($keyword);
-		echo $questions;
-		echo "<br/>";
-		echo "<br/>";
-		echo "<br/>";
-		//echo $res->getStatusCode(); // 200
-		echo $res->getBody(); // { "type": "User", ....
+	// 	$keyword = 'VietPham';
+	// 	$questions = $this->runSearch($keyword);
+	// 	echo $questions;
+	// 	echo "<br/>";
+	// 	echo "<br/>";
+	// 	echo "<br/>";
+	// 	//echo $res->getStatusCode(); // 200
+	// 	echo $res->getBody(); // { "type": "User", ....
 
-	}
+	// }
 }

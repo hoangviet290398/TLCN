@@ -154,13 +154,13 @@ Route::middleware(['auth'])->group(function () {
 		'uses' => 'ViewTopicController@removeBestAnswer'
 	]);
 
-	Route::get('like/{post_id}/{post_type}',[
+	Route::get('like',[
 		'as' => 'like',
 		'uses' => 'ViewTopicController@like'
 	]);
 
 
-	Route::get('dislike/{post_id}/{post_type}',[
+	Route::get('dislike',[
 		'as' => 'dislike',
 		'uses' => 'ViewTopicController@dislike'
 	]);
