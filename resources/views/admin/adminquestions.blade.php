@@ -70,10 +70,18 @@
                                                  </p>
                                                  <div class="row">
                                                     <div class="col-sm-3">
+                                                        @if(is_file('storage/avatars/'.$question->user->avatar))
                                                         <a href="#">
                                                             <img src="{{ asset('storage/avatars')}}/{{$question->user->avatar}}"
                                                             class="img-fluid rounded-circle align-middle user-avatar">
                                                         </a>
+                                                        @else
+                                                          <a href="#">
+                                                            <img src="{{$question->user->avatar}}"
+                                                            class="img-fluid rounded-circle align-middle user-avatar">
+                                                        </a>
+                                                        @endif
+
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <div class="font-weight-bold text-primary">

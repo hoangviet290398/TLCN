@@ -238,10 +238,14 @@ use App\LikeDislike;
     <!-- Start Question Block -->
     <div class="">
         <div class="row px-3 pt-3">
+            @if(is_file('storage/avatars/'.$question->user->avatar))
 
             <div class="col-sm-1"><img src="{{ asset('storage/avatars')}}/{{$question->user->avatar}}"
                     class="user-avatar rounded-circle align-middle"></div>
-
+            @else
+             <div class="col-sm-1"><img src="{{$question->user->avatar}}"
+                    class="user-avatar rounded-circle align-middle"></div>
+            @endif
             <!-- Start Username, Date, Edit, Delete Block -->
             <div class="col-sm-11">
                 <div class="font-weight-bold">
@@ -292,7 +296,7 @@ use App\LikeDislike;
             <div class="col-sm-12">
                 <h3 class="text-primary font-weight-bold d-flex justify-content-sm-between">
                     <div style="max-width:950px">{{$question->title}}</div>
-                    <span class="badge badge-info d-flex" style="height: 32px">{{$question->category->name}}</span>
+                    <a href="{{ route('viewByCategory', ['id' => $question->category->id]) }}"><span class="badge badge-info d-flex" style="height: 32px">{{$question->category->name}}</span></a>
                 </h3>
                    <hr style="border-width: 1px; border-style: solid; border-color: #b2bec3;">
             </div>
@@ -345,7 +349,7 @@ use App\LikeDislike;
                         @endif
                     </div>
                     <div class="col-xs" style="width:70px">
-                        <i class="fa fa-reply"></i> {{$question->total_answer}}
+                        <i class="fa fa-comment"></i> {{$question->total_answer}}
                     </div>
                 </div>
             </div>
@@ -401,9 +405,11 @@ use App\LikeDislike;
         @if ($bestAnswer!=null)
         <div class="row px-3 pt-3">
             <div class="col-1">
-                <img src="{{ asset('storage/avatars')}}/{{$bestAnswer->user->avatar}}"
-
-                    class="user-avatar rounded-circle align-middle">
+                @if(is_file('storage/avatars/'.$bestAnswer->user->avatar))
+                <img src="{{ asset('storage/avatars')}}/{{$bestAnswer->user->avatar}}" class="user-avatar rounded-circle align-middle">
+                @else
+                <img src="{{$bestAnswer->user->avatar}}" class="user-avatar rounded-circle align-middle">
+                @endif
                 <br>
                 <br>
                 <div class="d-flex" style="justify-content :center; align-items:center;  font-size:200%; color:#66ad1f">
@@ -486,8 +492,13 @@ use App\LikeDislike;
             @if (($bestAnswer==null) or (($bestAnswer!=null) and ($answer->_id!=$bestAnswer->_id)))
                 <div class="row px-3 pt-3">
                     <div class="col-sm-1">
+                        @if(is_file('storage/avatars/'.$answer->user->avatar))
                         <img src="{{asset('storage/avatars')}}/{{$answer->user->avatar}}"
                             class="user-avatar rounded-circle align-middle">
+                        @else
+                        <img src="{{$answer->user->avatar}}"
+                            class="user-avatar rounded-circle align-middle">
+                        @endif
                         <br>
                         <br>
                         @if ($question->bestAnswer_id == $answer->_id)

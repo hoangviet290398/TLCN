@@ -21,7 +21,11 @@
             <div class="col-sm-3">
                 <div class="card shadow bg-light">
                     <div class="card-body text-center">
+                        @if(is_file('storage/avatars/'.Auth::user()->avatar))
                         <img src="{{ asset('storage/avatars').'/'.Auth::user()->avatar }}" class="img-fluid" style="width: 200px;">    
+                        @else
+                         <img src="{{ Auth::user()->avatar }}" class="img-fluid" style="width: 200px;">  
+                        @endif
                         <h4 class="mt-2 text-primary font-weight-bold">{{ Auth::user()->fullname }}</h4>
                         <button class="badge btn btn-warning" data-toggle="modal" data-target="#exampleModal">Change
                             avatar</button>

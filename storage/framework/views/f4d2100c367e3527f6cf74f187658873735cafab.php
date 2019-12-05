@@ -1,4 +1,4 @@
-<?php $__env->startSection('title','TechSolution'); ?>
+<?php $__env->startSection('title','TechSolution - Connect, Learn and Share'); ?>
 <?php $__env->startSection('content'); ?>
 
 <main>
@@ -38,13 +38,19 @@
             <div class="card-body p-0">
                 <?php $__currentLoopData = $questions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $question): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="row px-3 pt-3">
+                    <?php if(is_file('storage/avatars/'.$question->user->avatar)): ?>
                     <div class="col-sm-1"><img src="<?php echo e(asset('storage/avatars')); ?>/<?php echo e($question->user->avatar); ?>"
                             class="img-fluid rounded-circle align-middle user-avatar"></div>
                     <div class="col-sm-11">
+                    <?php else: ?>
+                       <div class="col-sm-1"><img src="<?php echo e($question->user->avatar); ?>"
+                            class="img-fluid rounded-circle align-middle user-avatar"></div>
+                        <div class="col-sm-11">
+                    <?php endif; ?>
                         <a href="/personalinfomation/<?php echo e($question->user->_id); ?>" class="text-decoration-none">
                             <small class="font-weight-bold" style="color:#5488c7;"><?php echo e($question->user->fullname); ?></small>
                         </a>
-                        <small class="text-muted pl-4" style="color:#5488c7;">asked:
+                        <small class="text-muted pl-4" style="color:#5488c7;" data-toggle="tooltip" title="<?php echo e($question->created_at->toDayDateTimeString()); ?>">asked:
                             <?php echo e($question->created_at->diffForHumans()); ?>
 
                         </small>
@@ -68,7 +74,7 @@
 						<!-- QuyTran added -->
                         <div class="row">
                             <div class="pl-3 pt-1 pb-3">
-                                <a href="#" class="border text-muted p-1 rounded ">
+                                <a href="<?php echo e(route('viewByCategory', ['id' => $question->category->id])); ?>" class="border text-muted p-1 rounded text-decoration-none">
                                     <?php echo e($question->category->name); ?>
 
                                 </a>

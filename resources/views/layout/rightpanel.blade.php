@@ -63,16 +63,24 @@
         @foreach($topMembers as $topMember)
         <div class="row px-2 pt-1 pb-1">
             <br />
+            @if(is_file('storage/avatars/'.$topMember->avatar))
             <div class="col-sm-3">
 
                 <img src="{{ asset('storage/avatars')}}/{{$topMember->avatar}}"
                 class="img-fluid rounded-circle align-middle user-avatar">
             </div>
+            @else
+            <div class="col-sm-3">
+
+                <img src="{{$topMember->avatar}}"
+                class="img-fluid rounded-circle align-middle user-avatar">
+            </div>
+            @endif
             <br />
 
             <div class="col-sm-9">
                 <div class="row">
-                    <a class="" href="#">
+                    <a class="" href="/personalinfomation/{{ $topMember->_id }}">
                         <small class="font-weight-bold" style="color:#5488c7;">{{$topMember->fullname}}</small>
                     </a>
                 </div>
@@ -99,17 +107,19 @@
     <div>
         <h6 class="font-weight-bold ml-3 mt-4"><i class="fa fa-tags mr-3"></i>Trending Tags</h6>
         <div class="col-sm-12">
+            @foreach($categories as $category)
             <div class="row">
                 <div class="pl-2 py-2">
-                    <a href="#" class="border text-primary p-1 bg-light rounded ">
-                        C#
+                    <a href="{{ route('viewByCategory', ['id' => $category->id]) }}" class="border text-primary p-1 bg-light rounded ">
+                        {{$category->name}}
                     </a>
                     <small class="px-2">x </small>
-                    <small>69</small>
+                    <small>{{$category->questions()->count()}}</small>
                 </div>
             </div>
+            @endforeach
 
-            <div class="row">
+           {{--  <div class="row">
                 <div class="pl-2 py-2">
                     <a href="#" class="border text-primary p-1 bg-light rounded ">
                         asp.net
@@ -155,7 +165,7 @@
                     <small class="px-2">x </small>
                     <small>15246349</small>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
     <!--QuyTran end add-->

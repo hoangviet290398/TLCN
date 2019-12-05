@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         $user->avatar = 'antman_avatar.png';
         $user->about_me = 'We are antman team!';
         $user->admin = 1;
+      
         $user->save();
 
         $category_name = array('C++/C#', 'Database', 'Java', 'Javascript', 'Mobile', 'Python', 'Ruby', 'Software', 'Website', 'Other');

@@ -13,10 +13,18 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col-sm-4 pr-2">
+                                            @if(is_file('storage/avatars/'.$user->avatar))
                                             <a href="#">
                                                 <img src="{{ asset('storage/avatars')}}/{{$user->avatar}}"
                                                     class="img-fluid rounded-circle align-middle user-avatar">
                                             </a>
+                                            @else
+                                            <a href="#">
+                                                <img src="{{$user->avatar}}"
+                                                    class="img-fluid rounded-circle align-middle user-avatar">
+                                            </a>
+                                            @endif
+
                                         </div>
                                         <div class="col-sm-7">
                                             <div class="h5 font-weight-bold text-primary text-uppercase mb-1">

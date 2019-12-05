@@ -23,7 +23,9 @@
                 </th>
                 <td class="text-right">
                     <a href="/editanswer/{{ $answer->_id }}" class="btn btn-sm btn-outline-dark" title="Edit answer"><i class="fa fa-pencil"></i></a>
+                    
                 </td>
+
             </tr>
             @endforeach
 

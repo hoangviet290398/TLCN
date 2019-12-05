@@ -49,4 +49,22 @@ return [
         'hosts' => explode(',', env('ELASTICSEARCH_HOSTS')),
     ],
 
+    'github' => [
+        'client_id' => env('GITHUB_CLIENT_ID'),         // Your GitHub Client ID
+        'client_secret' => env('GITHUB_CLIENT_SECRET'), // Your GitHub Client Secret
+        'redirect' => env('GITHUB_CALLBACK_URL'),
+    ],
+
+    'facebook' => [
+    'client_id' => env('FACEBOOK_APP_ID'),
+    'client_secret' => env('FACEBOOK_APP_SECRET'),
+    'redirect' => env('FACEBOOK_APP_CALLBACK_URL'),
+    ],
+
+    'google' => [
+    'client_id' => env('GOOGLE_APP_ID'),
+    'client_secret' => env('GOOGLE_APP_SECRET'),
+    'redirect' => env('GOOGLE_APP_CALLBACK_URL'),
+],
+
 ];

@@ -8,6 +8,7 @@ use App\Answer;
 use App\LikeDislike;
 use App\Notification;
 use App\user;
+use App\Category;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,8 +37,9 @@ class ViewTopicController extends Controller
             $bestAnswer->content = $parsedown->setMarkupEscaped(true)->text($bestAnswer->content);
         }
         
-        
-        return view('question.view_topic',compact('question','answers','bestAnswer','topMembers'));
+        $categories = Category::all();
+
+        return view('question.view_topic',compact('question','answers','bestAnswer','topMembers','categories'));
     
     }
 

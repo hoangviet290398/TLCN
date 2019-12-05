@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-sm">
                 <!-- start logo block -->
-                <a class="navbar-brand" href="<?php echo e(route('homePage')); ?>"><b style="font-size:20px">
+                <a class="navbar-brand" href="<?php echo e(route('homePage')); ?>"><b style="font-size:20px;color:white">
                     <img src="<?php echo e(asset('images/resource/logo2a.png')); ?>" width="40px"> TechSolution</b></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,8 +76,11 @@
                         </h6>
                         <?php $__currentLoopData = Auth::user()->notifications()->orderBy('created_at', 'DESC')->take(4)->get(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $notification): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <a class="dropdown-item d-flex align-items-center noti_item" href="/topic/<?php echo e($notification->question_id); ?>" style="border-width: 1px; border-bottom-style: solid; border-color: #b2bec3;">
-                          
+                            <?php if(is_file('storage/avatars/'.$notification->actor()->first()->avatar)): ?>
                                     <img src="<?php echo e(asset('storage/avatars')); ?>/<?php echo e($notification->actor()->first()->avatar); ?>" class="dot mr-4">
+                            <?php else: ?>
+                                <img src="<?php echo e($notification->actor()->first()->avatar); ?>" class="dot mr-4">
+                            <?php endif; ?>
                             
                             <div>
 
@@ -108,8 +111,14 @@
             </div>
             <div class="col-0.5">
                 <div class="nav-item dropdown">
+                    <?php if(is_file('storage/avatars/'.Auth::user()->avatar)): ?>
+                    
+                        <a href="" class="nav-link dropdown-toggle text-light" id="setting" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img class="dot" src="<?php echo e(asset('storage/avatars')); ?>/<?php echo e(Auth::user()->avatar); ?>"></a>
+                    <?php else: ?>
                     <a href="" class="nav-link dropdown-toggle text-light" id="setting" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img class="dot" src="<?php echo e(asset('storage/avatars')); ?>/<?php echo e(Auth::user()->avatar); ?>"></a>
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img class="dot" src="<?php echo e(Auth::user()->avatar); ?>"></a>
+                    <?php endif; ?>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="setting">
                         <a class="dropdown-item" href="<?php echo e(route('information')); ?>">
                             <i class="fa fa-cog" style="width:20px"></i>

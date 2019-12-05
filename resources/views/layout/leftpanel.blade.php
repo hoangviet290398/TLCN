@@ -4,11 +4,11 @@
 	</div>
 
 	<div>
-		<h6 class="font-weight-bold mt-4 left-panel"><i class="fa fa-tags mr-3"></i>Tags</h6>
+		<a href="{{ route('allTags') }}"><h6 class="font-weight-bold mt-4 left-panel"><i class="fa fa-tags mr-3"></i>Tags</h6></a>
 	</div>
 
 	<div>
-		<h6 class="font-weight-bold mt-4 left-panel"><i class="fa fa-users mr-3"></i>Users</h6>
+		<a href="{{ route('allUsers') }}"><h6 class="font-weight-bold mt-4 left-panel"><i class="fa fa-users mr-3"></i>Users</h6></a>
 	</div>
 
 	<div>

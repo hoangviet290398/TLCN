@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('title','TechSolution')
+@section('title','TechSolution - Connect, Learn and Share')
 @section('content')
 @php
 use Carbon\Carbon;
@@ -33,26 +33,25 @@ use Carbon\Carbon;
 						<a class="nav-link" data-toggle="pill" href="#menu2">Month</a>
 					</li>
 				</ul> --}}
-				<h2>Results for "{{$keyword}}"</h2>
-				<form action="{{ route('searchIndex') }}" method="get">
+				<h2>Questions tagged "{{$tag->name}}"</h2>
+				{{-- <form action="{{ route('searchIndex') }}" method="get">
 					<div class="input-group mb-4">
 						<input type="search" name="keyword" placeholder="" aria-describedby="button-addon5" class="form-control" value="{{$keyword}}">
 						<div class="input-group-append">
 							<button id="button-addon5" type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
 						</div>
 					</div>
-				</form>
+				</form> --}}
 				<br/>
 				<h5 class="text-left">{{number_format($questions->count())}} results</h5>
-
 			</div>
 			<div class="card-body p-0">
 				@if($questions->count()==0)
 				<div class="text-center">
 					<br/>
 					<img src="{{ asset('images/resource/magnifying.svg') }}" width="90px">
-					<p>We couldn't find anything for <b>{{$keyword}}</b></p>
-					<small>Try different or less specific keywords</small>
+					<p>We couldn't find anything questions tagged <b>{{$tag->name}}</b></p>
+					
 				</div>
 				@endif
 				@foreach($questions as $question)

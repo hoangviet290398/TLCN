@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-sm">
                 <!-- start logo block -->
-                <a class="navbar-brand" href="{{ route('homePage') }}"><b style="font-size:20px">
+                <a class="navbar-brand" href="{{ route('homePage') }}"><b style="font-size:20px;color:white">
                     <img src="{{ asset('images/resource/logo2a.png') }}" width="40px"> TechSolution</b></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,8 +85,11 @@
                         </h6>
                         @foreach(Auth::user()->notifications()->orderBy('created_at', 'DESC')->take(4)->get() as $notification)
                         <a class="dropdown-item d-flex align-items-center noti_item" href="/topic/{{ $notification->question_id }}" style="border-width: 1px; border-bottom-style: solid; border-color: #b2bec3;">
-                          
+                            @if(is_file('storage/avatars/'.$notification->actor()->first()->avatar))
                                     <img src="{{ asset('storage/avatars')}}/{{$notification->actor()->first()->avatar}}" class="dot mr-4">
+                            @else
+                                <img src="{{$notification->actor()->first()->avatar}}" class="dot mr-4">
+                            @endif
                             
                             <div>
 
@@ -117,8 +120,14 @@
             </div>
             <div class="col-0.5">
                 <div class="nav-item dropdown">
+                    @if(is_file('storage/avatars/'.Auth::user()->avatar))
+                    
+                        <a href="" class="nav-link dropdown-toggle text-light" id="setting" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img class="dot" src="{{ asset('storage/avatars')}}/{{Auth::user()->avatar}}"></a>
+                    @else
                     <a href="" class="nav-link dropdown-toggle text-light" id="setting" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img class="dot" src="{{ asset('storage/avatars')}}/{{Auth::user()->avatar}}"></a>
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img class="dot" src="{{Auth::user()->avatar}}"></a>
+                    @endif
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="setting">
                         <a class="dropdown-item" href="{{ route('information') }}">
                             <i class="fa fa-cog" style="width:20px"></i>

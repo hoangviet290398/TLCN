@@ -17,6 +17,8 @@ Route::get('noanswers','HomeController@noAnswers')->name('noAnswers');
 Route::get('week','HomeController@week')->name('week');
 Route::get('month','HomeController@month')->name('month');
 Route::get('year','HomeController@year')->name('year');
+Route::get('allusers','HomeController@allUsers')->name('allUsers');
+Route::get('alltags','HomeController@allTags')->name('allTags');
 
 Route::get('signup','SignUpController@index')->name('signUp');
 Route::post('signup','SignUpController@store')->name('signUpStore');
@@ -43,6 +45,9 @@ Route::get('QuestionSearch', 'QuestionSearchController@index');
 Route::get('getquestion', 'HomeController@getQuestion');
 Route::post('QuestionSearchCreate', 'QuestionSearchController@create');
 
+Route::get('login/{provider}', 'AuthController@redirectToProvider');
+Route::get('{provider}/callback', 'AuthController@handleProviderCallback');
+
 Route::post('signin',[
 	'as' => 'signIn',
 	'uses' => 'SignInController@postSignIn'
@@ -52,6 +57,11 @@ Route::post('signin',[
 Route::get('topic/{id}',[
 		'as' => 'viewTopic',
 		'uses' => 'ViewTopicController@view'
+]);
+
+Route::get('category/{id}',[
+		'as' => 'viewByCategory',
+		'uses' => 'HomeController@viewByCategory'
 ]);
 
 Route::get('aboutus',[
