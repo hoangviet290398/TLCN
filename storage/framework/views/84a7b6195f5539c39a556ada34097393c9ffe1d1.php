@@ -23,11 +23,9 @@
                         <a class="nav-link text-light header" href="<?php echo e(route('homePage')); ?>">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light header" href="#">About Us</a>
+                        <a class="nav-link text-light header" href="<?php echo e(route('aboutUs')); ?>">About Us</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light header" href="#">Contact Us</a>
-                    </li>
+                   
 
                     <!-- start collapse block -->
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -106,7 +104,7 @@
 
             <!-- start user menu block -->
 
-            <div class="col-3 pt-2 ml-4">
+            <div class="col-3 pt-2 ml-5">
                 <b class="text-light header"><?php echo e(Auth::user()->fullname); ?></b>
             </div>
             <div class="col-0.5">
