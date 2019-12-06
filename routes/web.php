@@ -78,10 +78,19 @@ Route::middleware(['admin'])->group(function(){
 	Route::get('managequestions','AdminHomeController@manageQuestions')->name('manageAllQuestions');
 	Route::post('admindeletetopic','AdminHomeController@destroy')->name('adminDeleteTopic');
 
+	Route::post('admindeleteanswer','AdminHomeController@destroyanswer')->name('adminDeleteAnswer');
+
+	Route::post('admindeleteuser','AdminHomeController@destroyuser')->name('adminDeleteUser');
+
 	Route::get('questionsbyuser/{id}',[
 		'as' => 'manageQuestionsByUser',
 		'uses' => 'AdminHomeController@manageQuestionsByUser'
-]);
+	]);
+
+	Route::get('answersbyuser/{id}',[
+		'as' => 'manageAnswersByUser',
+		'uses' => 'AdminHomeController@manageAnswersByUser'
+	]);
 
 	
 });

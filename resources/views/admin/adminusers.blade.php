@@ -26,6 +26,7 @@
                                             @endif
 
                                         </div>
+
                                         <div class="col-sm-7">
                                             <div class="h5 font-weight-bold text-primary text-uppercase mb-1">
                                                 <a href="{{ route('manageQuestionsByUser', ['id' => $user->id]) }}">
@@ -35,10 +36,36 @@
                                             <div class="mb-0 text-muted">{{$user->questions->count()}} Questions</div>
                                             <div class="mb-0  text-muted">{{$user->answers->count()}} Answers</div>
                                         </div>
+
                                     </div>
                                 </div>
+                               <i href="#myModal" data-toggle="modal" class="fa fa-trash text-right text-danger pr-2" aria-hidden="true" style=""></i>
+                                
+                                <div id="myModal" class="modal fade" tabindex="-1">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title">Confirmation</h5>
+                                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <p>Are you sure you want to delete this user?</p>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                                <form action="{{route('adminDeleteUser')}}" method="post">
+                                                                    @csrf
+                                                                    <input type="text" name="_id" value="{{$user->_id}}" hidden>
+                                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                             </div>
+
                         </div>
+
                         @endforeach
                     </div>
 
