@@ -176,8 +176,8 @@
         <div class="col-xs-6 col-md-3">
           <h6>Categories</h6>
           <ul class="footer-links">
-            <li><a href="http://scanfcode.com/category/c-language/">Tags</a></li>
-            <li><a href="http://scanfcode.com/category/front-end-development/">Users</a></li>
+            <li><a href="{{ route('allTags') }}">Tags</a></li>
+            <li><a href="{{ route('allUsers') }}">Users</a></li>
             <li><a href="http://scanfcode.com/category/back-end-development/">Help</a></li>
             
           </ul>

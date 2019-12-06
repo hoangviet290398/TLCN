@@ -43,7 +43,7 @@ class AdminHomeController extends Controller
 
 
 		
-		return redirect()->route('manageAllQuestions');
+		return redirect()->back();
 	}
 	
 	public function removeQuestion(Request $request)
@@ -55,6 +55,17 @@ class AdminHomeController extends Controller
 		$question->delete();
 
 		(new UserController)->createNotification($question->user, Notification::$target['question'], Notification::$action['deleted'],  $question->_id);
+	}
+
+	public function manageQuestionsByUser($id)
+	{
+		$limit=\Config::get('constants.options.ItemNumberPerPage');
+		$questions = Question::where('user_id',$id)->orderBy('created_at', 'desc')->paginate($limit);
+		$questions->setPath('/');
+
+		$created_by = User::where('_id',$id)->first();
+
+		return view('admin.adminhomequestionsbyuser',compact('questions','created_by')); 
 	}
 
 	public function logout()

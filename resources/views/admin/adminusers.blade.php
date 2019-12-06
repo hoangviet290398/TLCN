@@ -19,7 +19,7 @@
                                                     class="img-fluid rounded-circle align-middle user-avatar">
                                             </a>
                                             @else
-                                            <a href="#">
+                                            <a href="{{ route('manageQuestionsByUser', ['id' => $user->id]) }}">
                                                 <img src="{{$user->avatar}}"
                                                     class="img-fluid rounded-circle align-middle user-avatar">
                                             </a>
@@ -28,7 +28,7 @@
                                         </div>
                                         <div class="col-sm-7">
                                             <div class="h5 font-weight-bold text-primary text-uppercase mb-1">
-                                                <a href="#">
+                                                <a href="{{ route('manageQuestionsByUser', ['id' => $user->id]) }}">
                                                     {{$user->fullname}}
                                                 </a>
                                             </div>

@@ -77,6 +77,12 @@ Route::middleware(['admin'])->group(function(){
 	Route::get('manageusers','AdminHomeController@manageUsers')->name('manageAllUsers');
 	Route::get('managequestions','AdminHomeController@manageQuestions')->name('manageAllQuestions');
 	Route::post('admindeletetopic','AdminHomeController@destroy')->name('adminDeleteTopic');
+
+	Route::get('questionsbyuser/{id}',[
+		'as' => 'manageQuestionsByUser',
+		'uses' => 'AdminHomeController@manageQuestionsByUser'
+]);
+
 	
 });
 

@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('title','TechSolution')
+@section('title','TechSolution - Connect, Learn and Share')
 @section('content')
 @php
 use Carbon\Carbon;
