@@ -80,7 +80,7 @@
                     <div class="row text-muted ">
 
                         <div class="col-sm-3">
-                            <a href="{{route('viewTopic', ['id' => $question->id])}}" class="text-decoration-none"><p>{{$question->title}}</p></a>
+                            <a target="_blank" href="{{route('viewTopic', ['id' => $question->id])}}" class="text-decoration-none"><p>{{$question->title}}</p></a>
                         </div>
                        
                         <div class="col-sm-1">

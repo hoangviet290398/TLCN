@@ -75,7 +75,7 @@
                     <div class="row text-muted  ">
 
                         <div class="col-sm-5 text-left pl-4">
-                            <a href="{{route('viewTopic', ['id' => $answer->question->id])}}" class="text-decoration-none"><h5>{{$answer->question->title}}</h5></a>
+                            <a target="_blank" href="{{route('viewTopic', ['id' => $answer->question->id])}}" class="text-decoration-none"><h5>{{$answer->question->title}}</h5></a>
                             <p>{{$answer->content}}</p>
                         </div>
                        
