@@ -42,12 +42,12 @@
                 <span>Questions</span></a>
         </li>
 
-        <!-- Nav Item - Tables -->
+        {{-- <!-- Nav Item - Tables -->
         <li class="nav-item">
             <a class="nav-link" href="tables.html">
                 <i class="fas fa-fw fa-comment"></i>
                 <span>Answers</span></a>
-        </li>
+        </li> --}}
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 
