@@ -52,9 +52,13 @@ class ViewTopicController extends Controller
         {
             $question->best_answer_id = $id_answer;
             $question->save();
+            if(Auth::user()->id == $answer->user->id)
+            {
 
-            (new UserController)->createNotification($answer->user, Notification::$target['answer'], Notification::$action['accept'],  $question->_id);
-
+            }else
+            {
+                (new UserController)->createNotification($answer->user, Notification::$target['answer'], Notification::$action['accept'],  $question->_id);
+            }
         }       
 
          return redirect()->back();      
@@ -103,15 +107,25 @@ class ViewTopicController extends Controller
                 $question= Question::find($post_id);    
                 $question->total_like += 1;
                 $question->save();
-                (new UserController)->createNotification($question->user, Notification::$target['question'], Notification::$action['like'],  $question->_id);
-                
+                if(Auth::user()->id == $question->user->id)
+                {
+
+                }else
+                {
+                    (new UserController)->createNotification($question->user, Notification::$target['question'], Notification::$action['like'],  $question->_id);
+                }
             }
             else
             {
                 $answer= Answer::find($post_id);       
                 $answer->total_like += 1;
                 $answer->save();
-                (new UserController)->createNotification($answer->user, Notification::$target['answer'], Notification::$action['like'],  $answer->question_id);            
+                if(Auth::user()->id == $answer->user->id)
+                {
+
+                }else{
+                    (new UserController)->createNotification($answer->user, Notification::$target['answer'], Notification::$action['like'],  $answer->question_id);   
+                }         
             }            
             $this->addLikeDislike($post_id,$post_type,Auth::user(),"Like");            
             if ($user_disliked)
@@ -165,14 +179,24 @@ class ViewTopicController extends Controller
                 $question= Question::find($post_id);          
                 $question->total_dislike += 1;
                 $question->save();
-                (new UserController)->createNotification($question->user, Notification::$target['question'], Notification::$action['dislike'],  $question->_id);
+                if(Auth::user()->id == $question->user->id)
+                {
+
+                }else{
+                    (new UserController)->createNotification($question->user, Notification::$target['question'], Notification::$action['dislike'],  $question->_id);
+                }
             }
             else
             {
                 $answer= Answer::find($post_id);              
                 $answer->total_dislike += 1;
                 $answer->save();
-                (new UserController)->createNotification($answer->user, Notification::$target['answer'], Notification::$action['dislike'],  $answer->question_id);
+                if(Auth::user()->id == $answer->user->id)
+                {
+
+                }else{
+                    (new UserController)->createNotification($answer->user, Notification::$target['answer'], Notification::$action['dislike'],  $answer->question_id);
+                }
             }
             $this->addLikeDislike($post_id,$post_type,Auth::user(),"Dislike"); 
             if ($user_liked)

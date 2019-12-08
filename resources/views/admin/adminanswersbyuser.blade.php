@@ -76,7 +76,7 @@
 
                         <div class="col-sm-5 text-left pl-4">
                             <a target="_blank" href="{{route('viewTopic', ['id' => $answer->question->id])}}" class="text-decoration-none"><h5>{{$answer->question->title}}</h5></a>
-                            <p>{{$answer->content}}</p>
+                            <p class="pv-archiveText">{{$answer->content}}</p>
                         </div>
                        
                         <div class="col-sm-1">
@@ -116,7 +116,7 @@
                                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                                                                 <form action="{{route('adminDeleteAnswer')}}" method="post">
                                                                     @csrf
-                                                                    <input type="text" name="_id" value="{{$answer->_id}}" hidden>
+                                                                    <input type="text" name="_id" value="{{$answer->id}}" hidden>
                                                                     <button type="submit" class="btn btn-danger">Delete</button>
                                                                 </form>
                                                             </div>

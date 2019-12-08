@@ -48,6 +48,11 @@ class AnswerController extends Controller
 				}
 		}
 
+		if(Auth::user()->id == $question->user->id)
+		{
+			return redirect()->route('viewTopic', ['id' => $answer->question_id]);
+		}
+
 		(new UserController)->createNotification($question->user, Notification::$target['question'], Notification::$action['answer'],  $question->_id);
 
 		return redirect()->route('viewTopic', ['id' => $answer->question_id]);
