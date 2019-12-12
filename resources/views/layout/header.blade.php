@@ -78,10 +78,12 @@
 
                         <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                         aria-labelledby="">
-                        <h6 class="dropdown-header bg-primary" style="color:white;">
+                        
+                        <h6 class="dropdown-header bg-primary" style="color:white">
                             Notification
                         </h6>
-                        @foreach(Auth::user()->notifications()->orderBy('created_at', 'DESC')->take(4)->get() as $notification)
+                        <div class="scrollbar">
+                        @foreach(Auth::user()->notifications()->orderBy('created_at', 'DESC')->get() as $notification)
                         <a class="dropdown-item d-flex align-items-center noti_item" href="/topic/{{ $notification->question_id }}" style="border-width: 1px; border-bottom-style: solid; border-color: #b2bec3;">
                             @if(is_file('storage/avatars/'.$notification->actor()->first()->avatar))
                                     <img src="{{ asset('storage/avatars')}}/{{$notification->actor()->first()->avatar}}" class="dot mr-4">
@@ -97,13 +99,12 @@
                                 <span class="font-weight-bold" style="color:#1e3799;font-size: 13px"> {{ $notification->actor()->first()->fullname.' '.$notification->action.' your '.$notification->target }}</span>
 
                             </div>
-
                              
                         </a>
                         
                         @endforeach
-                        
-                        <a class="dropdown-item text-center small text-gray-500 noti_item" href="#">Show All Alerts</a>
+                        </div>
+                       
                     </div>
                 </div>
                 <!-- end notification block -->
@@ -173,3 +174,5 @@
 
 
 </nav>
+
+

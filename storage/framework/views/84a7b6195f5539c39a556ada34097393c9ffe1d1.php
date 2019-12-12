@@ -69,10 +69,12 @@
 
                         <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                         aria-labelledby="">
-                        <h6 class="dropdown-header bg-primary" style="color:white;">
+                        
+                        <h6 class="dropdown-header bg-primary" style="color:white">
                             Notification
                         </h6>
-                        <?php $__currentLoopData = Auth::user()->notifications()->orderBy('created_at', 'DESC')->take(4)->get(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $notification): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <div class="scrollbar">
+                        <?php $__currentLoopData = Auth::user()->notifications()->orderBy('created_at', 'DESC')->get(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $notification): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <a class="dropdown-item d-flex align-items-center noti_item" href="/topic/<?php echo e($notification->question_id); ?>" style="border-width: 1px; border-bottom-style: solid; border-color: #b2bec3;">
                             <?php if(is_file('storage/avatars/'.$notification->actor()->first()->avatar)): ?>
                                     <img src="<?php echo e(asset('storage/avatars')); ?>/<?php echo e($notification->actor()->first()->avatar); ?>" class="dot mr-4">
@@ -88,13 +90,12 @@
                                 <span class="font-weight-bold" style="color:#1e3799;font-size: 13px"> <?php echo e($notification->actor()->first()->fullname.' '.$notification->action.' your '.$notification->target); ?></span>
 
                             </div>
-
                              
                         </a>
                         
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        
-                        <a class="dropdown-item text-center small text-gray-500 noti_item" href="#">Show All Alerts</a>
+                        </div>
+                       
                     </div>
                 </div>
                 <!-- end notification block -->
@@ -164,4 +165,6 @@
 
 
 </nav>
+
+
 <?php /**PATH C:\xampp\htdocs\TLCN\resources\views/layout/header.blade.php ENDPATH**/ ?>
