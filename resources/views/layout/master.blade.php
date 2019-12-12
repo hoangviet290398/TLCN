@@ -43,6 +43,92 @@
                 $('#result_list').hide();
             }
         });
+
+        $('#searchTags').keyup(function () {
+            var keyword = $(this).val();
+            if (keyword != '') {
+                $.ajax({
+                    url: "{{ route('ajaxSearchTags') }}",
+                    method: "GET",
+                    data: {
+                        keyword
+                    },
+                    success: function (data) {
+                        if(data!=""){
+                            $('#allTags').empty();
+                            $('#allTags').html(data);
+                            $('#allTags').show();
+                        }
+                        else{
+                            $('#allTags').hide();
+                        }
+                    }
+                })
+            }
+            else{
+                $.ajax({
+                    url: "{{ route('ajaxSearchTags1') }}",
+                    method: "GET",
+                    data: {
+                        keyword
+                    },
+                    success: function (data) {
+                        if(data!=""){
+                            $('#allTags').empty();
+                            $('#allTags').html(data);
+                            $('#allTags').show();
+                        }
+                        else{
+                            $('#allTags').hide();
+                        }
+                    }
+                })
+            }
+        });
+
+        $('#searchUsers').keyup(function () {
+            var keyword = $(this).val();
+            if (keyword != '') {
+                $.ajax({
+                    url: "{{ route('ajaxSearchUsers') }}",
+                    method: "GET",
+                    data: {
+                        keyword
+                    },
+                    success: function (data) {
+                        if(data!=""){
+                            $('#allU').empty();
+                            $('#allU').html(data);
+                            $('#allU').show();
+                        }
+                        else{
+                            $('#allU').hide();
+                        }
+                    }
+                })
+            }
+            else{
+                $.ajax({
+                    url: "{{ route('ajaxSearchUsers1') }}",
+                    method: "GET",
+                    data: {
+                        keyword
+                    },
+                    success: function (data) {
+                        if(data!=""){
+                            $('#allU').empty();
+                            $('#allU').html(data);
+                            $('#allU').show();
+                        }
+                        else{
+                            $('#allU').hide();
+                        }
+                    }
+                })
+            }
+        });
+
+
         function submit_search(){
             if($('#search').val()!='') $('#searchform').submit();
         }

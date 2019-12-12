@@ -2,6 +2,8 @@
 @section('title','TechSolution - Connect, Learn and Share')
 @section('content')
 
+
+
 <main>
     <div class="mt-1 d-flex justify-content-center">
         @include('layout.leftpanel')
@@ -12,14 +14,14 @@
                 <br/>
                 <form action="">
                   <div class="form-group mb-4">
-                    <input type="search" placeholder="Filter by user" aria-describedby="button-addon" class="form-control-lg border-primary">
+                    <input id="searchUsers" type="search" placeholder="Filter by user" aria-describedby="button-addon" class="form-control-lg border-primary">
                 </div>
                 </form>
             </div>
             <div class="card-body">
                 <div class="">
                     <div id="allUsers">
-                        <div class="row">
+                        <div class="row" id="allU">
                             @foreach($users as $user)
                             <div class="col-sm-3 text-center py-2">
                                 <div class="card border-left-success shadow h-100 py-2">

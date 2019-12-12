@@ -43,6 +43,92 @@
                 $('#result_list').hide();
             }
         });
+
+        $('#searchTags').keyup(function () {
+            var keyword = $(this).val();
+            if (keyword != '') {
+                $.ajax({
+                    url: "<?php echo e(route('ajaxSearchTags')); ?>",
+                    method: "GET",
+                    data: {
+                        keyword
+                    },
+                    success: function (data) {
+                        if(data!=""){
+                            $('#allTags').empty();
+                            $('#allTags').html(data);
+                            $('#allTags').show();
+                        }
+                        else{
+                            $('#allTags').hide();
+                        }
+                    }
+                })
+            }
+            else{
+                $.ajax({
+                    url: "<?php echo e(route('ajaxSearchTags1')); ?>",
+                    method: "GET",
+                    data: {
+                        keyword
+                    },
+                    success: function (data) {
+                        if(data!=""){
+                            $('#allTags').empty();
+                            $('#allTags').html(data);
+                            $('#allTags').show();
+                        }
+                        else{
+                            $('#allTags').hide();
+                        }
+                    }
+                })
+            }
+        });
+
+        $('#searchUsers').keyup(function () {
+            var keyword = $(this).val();
+            if (keyword != '') {
+                $.ajax({
+                    url: "<?php echo e(route('ajaxSearchUsers')); ?>",
+                    method: "GET",
+                    data: {
+                        keyword
+                    },
+                    success: function (data) {
+                        if(data!=""){
+                            $('#allU').empty();
+                            $('#allU').html(data);
+                            $('#allU').show();
+                        }
+                        else{
+                            $('#allU').hide();
+                        }
+                    }
+                })
+            }
+            else{
+                $.ajax({
+                    url: "<?php echo e(route('ajaxSearchUsers1')); ?>",
+                    method: "GET",
+                    data: {
+                        keyword
+                    },
+                    success: function (data) {
+                        if(data!=""){
+                            $('#allU').empty();
+                            $('#allU').html(data);
+                            $('#allU').show();
+                        }
+                        else{
+                            $('#allU').hide();
+                        }
+                    }
+                })
+            }
+        });
+
+
         function submit_search(){
             if($('#search').val()!='') $('#searchform').submit();
         }

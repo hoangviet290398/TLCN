@@ -154,10 +154,40 @@ class HomeController extends Controller
 	public function allUsers()
 	{
 		$limit = 20;
-		$users = User::orderBy('created_at', 'desc')->paginate($limit);
+		$users = User::where('admin',0)->orderBy('created_at', 'desc')->paginate($limit);
 		$users->setPath('/');
 
 		return view('user.all_users',compact('users'));
+	}
+
+	public function ajaxAllUsers(Request $request)
+	{
+		$limit = 20;
+		$keyword = $request->keyword;
+
+		$users = User::whereRaw(array('$text'=>array('$search'=> $keyword)))->where('admin',0)->orderBy('created_at', 'desc')->paginate($limit);
+		$users->setPath('/');
+
+		if($users->count()<=0) return "";
+		foreach($users as $user){
+			echo view('layout.search_user',compact('user'));
+		}
+
+		//return view('user.all_users',compact('users'));
+	}
+
+	public function ajaxAllUsers1(Request $request)
+	{
+		$limit = 20;
+		
+		$users = User::where('admin',0)->orderBy('created_at', 'desc')->paginate($limit);
+		$users->setPath('/');
+		// if($users->count()<=0) return "";
+		foreach($users as $user){
+			echo view('layout.search_user',compact('user'));
+		}
+
+		//return view('user.all_users',compact('users'));
 	}
 
 	public function allTags()
@@ -168,6 +198,37 @@ class HomeController extends Controller
 
 		return view('tags.all_tags',compact('categories'));
 	}
+
+	public function ajaxAllTags(Request $request)
+	{
+		$limit = 20;
+		$keyword = $request->keyword;
+
+		$categories = Category::whereRaw(array('$text'=>array('$search'=> $keyword)))->orderBy('created_at', 'desc')->paginate($limit);
+		$categories->setPath('/');
+
+		if($categories->count()<=0) return "";
+		foreach($categories as $category){
+			echo view('layout.search_category',compact('category'));
+		}
+
+		//return view('user.all_users',compact('users'));
+	}
+
+	public function ajaxAllTags1(Request $request)
+	{
+		$limit = 20;
+		
+		$categories = Category::orderBy('created_at', 'desc')->paginate($limit);
+		$categories->setPath('/');
+		// if($users->count()<=0) return "";
+		foreach($categories as $category){
+			echo view('layout.search_category',compact('category'));
+		}
+
+		//return view('user.all_users',compact('users'));
+	}
+
 
 
 

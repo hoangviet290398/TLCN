@@ -39,7 +39,9 @@ class AuthController extends Controller
 	            'email' => $user->getEmail(),
 	            'avatar' => $user->getAvatar(),
 	            'provider_id' => $user->getId(),
+	            'admin' => 0,
 	            'token' => $user->token,
+
 	        ]);
 	        Auth::login($createdUser);
 		}else{
@@ -49,6 +51,7 @@ class AuthController extends Controller
 	            'email' => $user->getEmail(),
 	            'avatar' => $user->getAvatar(),
 	            'provider_id' => $user->getId(),
+	            'admin' => 0
 	           
 	        ]);
 			Auth::login($createdUser);

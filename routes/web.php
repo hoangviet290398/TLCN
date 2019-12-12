@@ -41,6 +41,25 @@ Route::get('ajaxsearch',[
 	'uses' => 'HomeController@ajaxSearch'
 ]);
 
+Route::get('ajaxsearchusers',[
+	'as' => 'ajaxSearchUsers',
+	'uses' => 'HomeController@ajaxAllUsers'
+]);
+
+Route::get('ajaxsearchusers1',[
+	'as' => 'ajaxSearchUsers1',
+	'uses' => 'HomeController@ajaxAllUsers1'
+]);
+
+Route::get('ajaxsearchtags',[
+	'as' => 'ajaxSearchTags',
+	'uses' => 'HomeController@ajaxAllTags'
+]);
+
+Route::get('ajaxsearchtags1',[
+	'as' => 'ajaxSearchTags1',
+	'uses' => 'HomeController@ajaxAllTags1'
+]);
 Route::get('QuestionSearch', 'QuestionSearchController@index');
 Route::get('getquestion', 'HomeController@getQuestion');
 Route::post('QuestionSearchCreate', 'QuestionSearchController@create');
