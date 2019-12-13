@@ -8,6 +8,10 @@
         jQuery.validator.addMethod("validpass", function (value, element) {
             return this.optional(element) || /^\S+$/i.test(value);
         }, "Password can't contain space.");
+        jQuery.validator.addMethod("regex",function(value,element,regexp){
+            var re = new RegExp(regexp);
+            return this.optional(element) || re.test(value);
+        }, "Your email is invalid");
 
         $('#registerform').validate({
             rules: {
@@ -17,6 +21,7 @@
                 email: {
                     required: true,
                     email: true,
+                    regex: /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/,
                     remote: {
                         url: "{{ route('validEmail') }}",
                         type: "get",

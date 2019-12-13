@@ -37,6 +37,7 @@ class SignUpRequests extends FormRequest
         return [
             'email.required' => 'Please enter email',
             'email.email' => 'This is not an email',
+           
             'password.required' => 'Please  enter password',
             'password.min' => 'Password must be more than 5 characters',
             'password.max' => 'Password must be less than 30 characters',

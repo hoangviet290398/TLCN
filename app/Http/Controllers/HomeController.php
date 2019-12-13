@@ -94,7 +94,7 @@ class HomeController extends Controller
 	public function ajaxSearch(Request $request){
 		$keyword = $request->keyword;
 		$client = new Client();
-		$res = $client->get("http://localhost:9200/q&asystem.questions/_search?q='".$keyword."'&filter_path=hits.hits");
+		$res = $client->get('http://localhost:9200/q&asystem.questions/_search?q="'.$keyword.'"&filter_path=hits.hits');
 		$questions = $res->getBody('hits');
 	
 		$decode = json_decode($questions);
@@ -112,7 +112,7 @@ class HomeController extends Controller
 	public function searchIndex(Request $request){
 		$keyword = $request->keyword;
 		$client = new Client();
-		$res = $client->get("http://localhost:9200/q&asystem.questions/_search?q='".$keyword."'&filter_path=hits.hits");
+		$res = $client->get('http://localhost:9200/q&asystem.questions/_search?q="'.$keyword.'"&filter_path=hits.hits');
 		
 		
 		$questions = $res->getBody('hits');
