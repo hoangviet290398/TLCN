@@ -240,11 +240,11 @@ use App\LikeDislike;
         <div class="row px-3 pt-3">
             @if(is_file('storage/avatars/'.$question->user->avatar))
 
-            <div class="col-sm-1"><img src="{{ asset('storage/avatars')}}/{{$question->user->avatar}}"
-                    class="user-avatar rounded-circle align-middle"></div>
+            <div class="col-sm-1"><a href="/personalinfomation/{{ $question->user->_id }}" class="text-decoration-none"><img src="{{ asset('storage/avatars')}}/{{$question->user->avatar}}"
+                    class="user-avatar rounded-circle align-middle"></a></div>
             @else
-             <div class="col-sm-1"><img src="{{$question->user->avatar}}"
-                    class="user-avatar rounded-circle align-middle"></div>
+             <div class="col-sm-1"><a href="/personalinfomation/{{ $question->user->_id }}" class="text-decoration-none"><img src="{{$question->user->avatar}}"
+                    class="user-avatar rounded-circle align-middle"></a></div>
             @endif
             <!-- Start Username, Date, Edit, Delete Block -->
             <div class="col-sm-11">
@@ -406,9 +406,9 @@ use App\LikeDislike;
         <div class="row px-3 pt-3">
             <div class="col-1">
                 @if(is_file('storage/avatars/'.$bestAnswer->user->avatar))
-                <img src="{{ asset('storage/avatars')}}/{{$bestAnswer->user->avatar}}" class="user-avatar rounded-circle align-middle">
+                <a href="/personalinfomation/{{ $bestAnswer->user->_id }}" class="text-decoration-none"><img src="{{ asset('storage/avatars')}}/{{$bestAnswer->user->avatar}}" class="user-avatar rounded-circle align-middle"></a>
                 @else
-                <img src="{{$bestAnswer->user->avatar}}" class="user-avatar rounded-circle align-middle">
+                 <a href="/personalinfomation/{{ $bestAnswer->user->_id }}" class="text-decoration-none"><img src="{{$bestAnswer->user->avatar}}" class="user-avatar rounded-circle align-middle"></a>
                 @endif
                 <br>
                 <br>
@@ -493,11 +493,11 @@ use App\LikeDislike;
                 <div class="row px-3 pt-3">
                     <div class="col-sm-1">
                         @if(is_file('storage/avatars/'.$answer->user->avatar))
-                        <img src="{{asset('storage/avatars')}}/{{$answer->user->avatar}}"
-                            class="user-avatar rounded-circle align-middle">
+                         <a href="/personalinfomation/{{ $answer->user->_id }}" class="text-decoration-none"><img src="{{asset('storage/avatars')}}/{{$answer->user->avatar}}"
+                            class="user-avatar rounded-circle align-middle"></a>
                         @else
-                        <img src="{{$answer->user->avatar}}"
-                            class="user-avatar rounded-circle align-middle">
+                        <a href="/personalinfomation/{{ $answer->user->_id }}" class="text-decoration-none"><img src="{{$answer->user->avatar}}"
+                            class="user-avatar rounded-circle align-middle"></a>
                         @endif
                         <br>
                         <br>

@@ -66,14 +66,14 @@
             @if(is_file('storage/avatars/'.$topMember->avatar))
             <div class="col-sm-3">
 
-                <img src="{{ asset('storage/avatars')}}/{{$topMember->avatar}}"
-                class="img-fluid rounded-circle align-middle user-avatar">
+                <a href="/personalinfomation/{{ $topMember->_id }}" class="text-decoration-none"><img src="{{ asset('storage/avatars')}}/{{$topMember->avatar}}"
+                class="img-fluid rounded-circle align-middle user-avatar"></a>
             </div>
             @else
             <div class="col-sm-3">
 
-                <img src="{{$topMember->avatar}}"
-                class="img-fluid rounded-circle align-middle user-avatar">
+                 <a href="/personalinfomation/{{ $topMember->_id }}" class="text-decoration-none"><img src="{{$topMember->avatar}}"
+                class="img-fluid rounded-circle align-middle user-avatar"></a>
             </div>
             @endif
             <br />

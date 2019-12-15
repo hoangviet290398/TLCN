@@ -22,7 +22,7 @@
 
     <div class="col-sm-3">
         <?php if(Auth::check()): ?>
-        <a href="topic/<?php echo e($question->id); ?>" class="border rounded text-light bg-dark text-center px-4 text-decoration-none" style="font-size:18px">Answer</a>
+        <a href="<?php echo e(route('viewTopic', ['id' => $question->id])); ?>" class="border rounded text-light bg-dark text-center px-4 text-decoration-none" style="font-size:18px">Answer</a>
         <?php else: ?>
         <a href="/signin" class="border rounded text-light bg-dark text-center px-4 text-decoration-none" style="font-size:18px">Answer</a>
         <?php endif; ?>

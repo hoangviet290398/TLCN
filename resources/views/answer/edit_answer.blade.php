@@ -30,7 +30,11 @@
 <div class="container mt-5">
     <div class="card shadow">
         <div class="row px-3 pt-3">
-            <div class="col-sm-1"><img src="{{ asset('storage/avatars')}}/{{$question->user->avatar}}"class="user-avatar rounded-circle align-middle"></div>
+            @if(is_file('storage/avatars/'.$question->user->avatar))
+            <div class="col-sm-1"><a href="/personalinfomation/{{ $question->user->_id }}" class="text-decoration-none"><img src="{{ asset('storage/avatars')}}/{{$question->user->avatar}}"class="user-avatar rounded-circle align-middle"></a></div>
+            @else
+            <div class="col-sm-1"><a href="/personalinfomation/{{ $question->user->_id }}" class="text-decoration-none"><img src="{{$question->user->avatar}}"class="user-avatar rounded-circle align-middle"></a></div>
+            @endif
             <div class="col-sm-11">
                 <a href="/personalinfomation/{{ $question->user->_id }}" style="color:#787878; font-size: 20px">{{$question->user->fullname}}</a>
                 <div>

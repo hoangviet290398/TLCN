@@ -18,7 +18,7 @@ class AdminHomeController extends Controller
         $users->setPath('/');
         $questions = Question::orderBy('created_at', 'desc')->paginate($limit);
         $questions->setPath('/');
-		return view('admin.adminhome',compact('users','questions'));
+		return view('admin.adminhome_users',compact('users','questions'));
 	}
 
 	public function manageUsers(){

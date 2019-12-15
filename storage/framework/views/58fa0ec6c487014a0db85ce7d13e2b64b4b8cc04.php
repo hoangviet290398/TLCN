@@ -238,11 +238,11 @@ use App\LikeDislike;
         <div class="row px-3 pt-3">
             <?php if(is_file('storage/avatars/'.$question->user->avatar)): ?>
 
-            <div class="col-sm-1"><img src="<?php echo e(asset('storage/avatars')); ?>/<?php echo e($question->user->avatar); ?>"
-                    class="user-avatar rounded-circle align-middle"></div>
+            <div class="col-sm-1"><a href="/personalinfomation/<?php echo e($question->user->_id); ?>" class="text-decoration-none"><img src="<?php echo e(asset('storage/avatars')); ?>/<?php echo e($question->user->avatar); ?>"
+                    class="user-avatar rounded-circle align-middle"></a></div>
             <?php else: ?>
-             <div class="col-sm-1"><img src="<?php echo e($question->user->avatar); ?>"
-                    class="user-avatar rounded-circle align-middle"></div>
+             <div class="col-sm-1"><a href="/personalinfomation/<?php echo e($question->user->_id); ?>" class="text-decoration-none"><img src="<?php echo e($question->user->avatar); ?>"
+                    class="user-avatar rounded-circle align-middle"></a></div>
             <?php endif; ?>
             <!-- Start Username, Date, Edit, Delete Block -->
             <div class="col-sm-11">
@@ -412,9 +412,9 @@ use App\LikeDislike;
         <div class="row px-3 pt-3">
             <div class="col-1">
                 <?php if(is_file('storage/avatars/'.$bestAnswer->user->avatar)): ?>
-                <img src="<?php echo e(asset('storage/avatars')); ?>/<?php echo e($bestAnswer->user->avatar); ?>" class="user-avatar rounded-circle align-middle">
+                <a href="/personalinfomation/<?php echo e($bestAnswer->user->_id); ?>" class="text-decoration-none"><img src="<?php echo e(asset('storage/avatars')); ?>/<?php echo e($bestAnswer->user->avatar); ?>" class="user-avatar rounded-circle align-middle"></a>
                 <?php else: ?>
-                <img src="<?php echo e($bestAnswer->user->avatar); ?>" class="user-avatar rounded-circle align-middle">
+                 <a href="/personalinfomation/<?php echo e($bestAnswer->user->_id); ?>" class="text-decoration-none"><img src="<?php echo e($bestAnswer->user->avatar); ?>" class="user-avatar rounded-circle align-middle"></a>
                 <?php endif; ?>
                 <br>
                 <br>
@@ -503,11 +503,11 @@ use App\LikeDislike;
                 <div class="row px-3 pt-3">
                     <div class="col-sm-1">
                         <?php if(is_file('storage/avatars/'.$answer->user->avatar)): ?>
-                        <img src="<?php echo e(asset('storage/avatars')); ?>/<?php echo e($answer->user->avatar); ?>"
-                            class="user-avatar rounded-circle align-middle">
+                         <a href="/personalinfomation/<?php echo e($answer->user->_id); ?>" class="text-decoration-none"><img src="<?php echo e(asset('storage/avatars')); ?>/<?php echo e($answer->user->avatar); ?>"
+                            class="user-avatar rounded-circle align-middle"></a>
                         <?php else: ?>
-                        <img src="<?php echo e($answer->user->avatar); ?>"
-                            class="user-avatar rounded-circle align-middle">
+                        <a href="/personalinfomation/<?php echo e($answer->user->_id); ?>" class="text-decoration-none"><img src="<?php echo e($answer->user->avatar); ?>"
+                            class="user-avatar rounded-circle align-middle"></a>
                         <?php endif; ?>
                         <br>
                         <br>

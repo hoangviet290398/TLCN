@@ -57,11 +57,11 @@ use Carbon\Carbon;
 				@foreach($questions as $question)
 				<div class="row px-3 pt-3">
 					@if(is_file('storage/avatars/'.$question->user->avatar))
-					<div class="col-sm-1"><img src="{{ asset('storage/avatars')}}/{{$question->user->avatar}}"
-						class="img-fluid rounded-circle align-middle user-avatar"></div>
+					<div class="col-sm-1"><a href="/personalinfomation/{{ $question->user->_id }}" class="text-decoration-none"><img src="{{ asset('storage/avatars')}}/{{$question->user->avatar}}"
+						class="img-fluid rounded-circle align-middle user-avatar"></a></div>
 						@else
-						<div class="col-sm-1"><img src="{{$question->user->avatar}}"
-							class="img-fluid rounded-circle align-middle user-avatar"></div>
+						<div class="col-sm-1"><a href="/personalinfomation/{{ $question->user->_id }}" class="text-decoration-none"><img src="{{$question->user->avatar}}"
+							class="img-fluid rounded-circle align-middle user-avatar"></a></div>
 							@endif
 							<div class="col-sm-11">
 								<a href="/personalinfomation/{{ $question->user->_id }}" class="text-decoration-none">
@@ -75,7 +75,7 @@ use Carbon\Carbon;
 								<div class="row">
 									<div class="col-12">
 										<div class="word-wrap">
-											<a href="topic/{{ $question->_id }}" class="text-decoration-none">
+											<a href="{{ route('viewTopic', ['id' => $question->id]) }}" class="text-decoration-none">
 												<h5>{{$question->title}}</h5>
 											</a></div>
 
@@ -120,7 +120,7 @@ use Carbon\Carbon;
 
 											<div class="col-sm-3">
 												@if(Auth::check())
-												<a href="topic/{{ $question->id }}" class="border rounded text-light bg-dark text-center px-4 text-decoration-none" style="font-size:18px">Answer</a>
+												<a href="{{ route('viewTopic', ['id' => $question->id]) }}" class="border rounded text-light bg-dark text-center px-4 text-decoration-none" style="font-size:18px">Answer</a>
 												@else
 												<a href="/signin" class="border rounded text-light bg-dark text-center px-4 text-decoration-none" style="font-size:18px">Answer</a>
 												@endif

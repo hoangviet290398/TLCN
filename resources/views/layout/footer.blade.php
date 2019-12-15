@@ -178,7 +178,7 @@
           <ul class="footer-links">
             <li><a href="{{ route('allTags') }}">Tags</a></li>
             <li><a href="{{ route('allUsers') }}">Users</a></li>
-            <li><a href="http://scanfcode.com/category/back-end-development/">Help</a></li>
+            <li><a href="#">Help</a></li>
             
           </ul>
         </div>
@@ -187,8 +187,8 @@
           <h6>Quick Links</h6>
           <ul class="footer-links">
             <li><a href="{{ route('homePage') }}">Home</a></li>
-            <li><a href="http://scanfcode.com/contact/">About Us</a></li>
-            <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contact Us</a></li>
+            <li><a href="{{route('aboutUs')}}">About Us</a></li>
+           
             
           </ul>
         </div>
