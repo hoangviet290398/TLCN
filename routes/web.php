@@ -111,6 +111,16 @@ Route::middleware(['admin'])->group(function(){
 		'uses' => 'AdminHomeController@manageAnswersByUser'
 	]);
 
+	Route::get('adminajaxsearchusers',[
+	'as' => 'adminAjaxSearchUsers',
+	'uses' => 'AdminHomeController@adminAjaxAllUsers'
+	]);
+
+	Route::get('adminajaxsearchusers1',[
+		'as' => 'adminAjaxSearchUsers1',
+		'uses' => 'AdminHomeController@adminAjaxAllUsers1'
+	]);
+
 	
 });
 

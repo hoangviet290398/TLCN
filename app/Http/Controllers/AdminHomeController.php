@@ -22,7 +22,7 @@ class AdminHomeController extends Controller
 	}
 
 	public function manageUsers(){
-		$limit=\Config::get('constants.options.ItemNumberPerPage');
+		$limit=20;
         $users = User::orderBy('created_at', 'desc')->paginate($limit);
         $users->setPath('/');
 
@@ -121,6 +121,32 @@ class AdminHomeController extends Controller
 		$created_by = User::where('_id',$id)->first();
 
 		return view('admin.adminhomeanswersbyuser',compact('answers','created_by')); 
+	}
+
+	public function adminAjaxAllUsers(Request $request)
+	{
+		$limit = 20;
+		$keyword = $request->keyword;
+
+		$users = User::whereRaw(array('$text'=>array('$search'=> $keyword)))->where('admin',0)->orderBy('created_at', 'desc')->paginate($limit);
+		$users->setPath('/');
+
+		if($users->count()<=0) return "";
+		foreach($users as $user){
+			echo view('admin.admin_search_user',compact('user'));
+		}
+	}
+
+	public function adminAjaxAllUsers1(Request $request)
+	{
+		$limit = 20;
+		
+		$users = User::where('admin',0)->orderBy('created_at', 'desc')->paginate($limit);
+		$users->setPath('/');
+		// if($users->count()<=0) return "";
+		foreach($users as $user){
+			echo view('admin.admin_search_user',compact('user'));
+		}
 	}
 
 	public function logout()

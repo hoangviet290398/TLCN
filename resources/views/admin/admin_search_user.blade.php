@@ -1,19 +1,4 @@
-<div class="col-sm-12">
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary"><i class="fa fa-user"></i> Users</h6>
-        </div>
-        <div class="card-body">
-            <form action="">
-                <div class="form-group mb-4">
-                    <input id="searchUsers" type="search" placeholder="Filter by user" aria-describedby="button-addon" class="form-control-lg border-primary">
-                </div>
-                </form>
-            <div class="">
-                <div id="allUsers">
-                    <div class="row" id="allU">
-                        @foreach($users as $user)
-                        <div class="col-sm-3 text-center py-2">
+<div class="col-sm-3 text-center py-2">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -70,59 +55,3 @@
                             </div>
 
                         </div>
-
-                        @endforeach
-                    </div>
-
-                </div>
-            </div>
-            <hr>
-            Showing all users in <code>Q&A System</code>
-        </div>
-    </div>
-</div>
-
-<script type="text/javascript">
-   
-    $('#searchUsers').keyup(function () {
-            var keyword = $(this).val();
-            if (keyword != '') {
-                $.ajax({
-                    url: "{{ route('adminAjaxSearchUsers') }}",
-                    method: "GET",
-                    data: {
-                        keyword
-                    },
-                    success: function (data) {
-                        if(data!=""){
-                            $('#allU').empty();
-                            $('#allU').html(data);
-                            $('#allU').show();
-                        }
-                        else{
-                            $('#allU').hide();
-                        }
-                    }
-                })
-            }
-            else{
-                $.ajax({
-                    url: "{{ route('adminAjaxSearchUsers1') }}",
-                    method: "GET",
-                    data: {
-                        keyword
-                    },
-                    success: function (data) {
-                        if(data!=""){
-                            $('#allU').empty();
-                            $('#allU').html(data);
-                            $('#allU').show();
-                        }
-                        else{
-                            $('#allU').hide();
-                        }
-                    }
-                })
-            }
-        });
-</script>

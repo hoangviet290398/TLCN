@@ -4,7 +4,7 @@
 
 <main>
 
-    <img src="{{ asset('images/resource/slogan.png') }}" style="height:15%" alt="placeholder+image">
+    <img src="{{ asset('images/resource/slogan.png') }}" style="height:15%;width: 100%" alt="placeholder+image">
 
 
 

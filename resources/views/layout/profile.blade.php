@@ -66,7 +66,7 @@
                     <div class="card">
                         <div class="card-header d-flex justify-content-between bg-primary">
                             <h3 class="text-white font-weight-bold">Change avatar</h3>
-                            <button class="btn btn-warning"><i class="fa fa-upload"></i></button>
+                           
                         </div>
                         <div class="card-body">
                             <div class="file-loading">
@@ -74,9 +74,11 @@
                             </div>
                         </div>
                     </div>
+                     <button class="btn btn-success float-right mt-2">Save</button>
                 </form>
                 </div>
             </div>
+
         </div>
     </div>
 @endsection

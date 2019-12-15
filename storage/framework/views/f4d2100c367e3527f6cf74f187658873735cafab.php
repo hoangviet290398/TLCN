@@ -3,7 +3,7 @@
 
 <main>
 
-    <img src="<?php echo e(asset('images/resource/slogan.png')); ?>" style="height:15%" alt="placeholder+image">
+    <img src="<?php echo e(asset('images/resource/slogan.png')); ?>" style="height:15%;width: 100%" alt="placeholder+image">
 
 
 
